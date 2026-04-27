@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SanaVita - Contatti</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    
+  <nav class="navbar" id="mainNavbar">
+    <div class="logo">Sana<span>Vita</span></div>
+    <ul class="nav-links">
+        <li><a href="index.html" class="nav-item">Home</a></li>
+        <li><a href="team.html" class="nav-item">Il Nostro Team</a></li>
+        <li><a href="servizi.html" class="nav-item">I Nostri Servizi</a></li>
+        <li><a href="contatti.html" class="nav-item">Contatti</a></li>
+    </ul>
+    <a href="contatti.html" class="btn-nav">Emergenza 24h</a>
+</nav>
+
+    <header class="hero" style="background-image: url('https://images.unsplash.com/photo-1586760130633-5c08b178ba99?q=80&w=2000'); height: 50vh;">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <span class="hero-subtitle">Siamo qui per te</span>
+            <h1>Richiedi un <span class="highlight">Appuntamento</span></h1>
+        </div>
+    </header>
+
+    <section class="contact-horizontal-section">
+        <div class="contact-container">
+            
+            <div class="contact-form-wrapper">
+                <h3>Inviaci un messaggio</h3>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <input type="text" placeholder="Nome Completo" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Email" required>
+                    </div>
+                    <div class="form-group">
+                        <select required>
+                            <option value="" disabled selected>Seleziona Specialità</option>
+                            <option value="cardiologia">Cardiologia</option>
+                            <option value="pediatria">Pediatria</option>
+                            <option value="diagnostica">Diagnostica</option>
+                            <option value="altro">Altro</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Il tuo messaggio..." rows="5"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-special">Invia Richiesta</button>
+                </form>
+            </div>
+
+            <div class="contact-info-wrapper">
+                <h3>Informazioni</h3>
+                <div class="info-item">
+                    <p><strong>📍 Indirizzo:</strong> Via della Salute 123, Roma</p>
+                </div>
+                <div class="info-item">
+                    <p><strong>📞 Telefono:</strong> +39 06 123 4567</p>
+                </div>
+                <div class="info-item">
+                    <p><strong>✉️ Email:</strong> info@sanavita.it</p>
+                </div>
+                
+                <div class="big-map">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2970.123456789!2d12.492233!3d41.890210!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132f6196f9d7956b%3A0x609151361d474c0!2sRoma%20RM!5e0!3m2!1sit!2sit!4v1620000000000!5m2!1sit!2sit" 
+                        width="100%" height="250" style="border:0; border-radius: 15px;" allowfullscreen="" loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+  <footer class="main-footer">
+    <div class="footer-container">
+        <div class="footer-column">
+            <h3>Sana<span>Vita</span></h3>
+            <p>Centro Medico d'Eccellenza dedicato alla cura e al benessere della persona, con tecnologie di ultima generazione.</p>
+        </div>
+
+        <div class="footer-column">
+            <h4>Contatti</h4>
+            <ul>
+                <li>📍 Via della Salute, 123 - 00100 Roma</li>
+                <li>📞 +39 06 123 4567</li>
+                <li>✉️ info@sanavita.it</li>
+                <li>🕒 Lun - Ven: 08:00 - 20:00</li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h4>Dove Siamo</h4>
+            <div class="map-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2969.8710255866!2d12.482319!3d41.890251!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132f604f678640a5%3A0x81de6290137537!2sColosseo!5e0!3m2!1sit!2sit!4v1700000000000" 
+                    width="100%" height="150" style="border:0;" allowfullscreen="" loading="lazy">
+                </iframe>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 Centro Medico SanaVita | P.IVA 12345678901 | <a href="#">Privacy Policy</a></p>
+    </div>
+</footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>
