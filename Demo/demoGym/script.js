@@ -1,47 +1,70 @@
 document.addEventListener('DOMContentLoaded', () => {
+    
+    // 1. GESTIONE NAVBAR ALLO SCROLL
     const navbar = document.querySelector('.navbar');
-
+    
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 80) {
+        if (window.scrollY > 50) {
             navbar.classList.add('scrolled');
         } else {
             navbar.classList.remove('scrolled');
         }
     });
 
-    // Smooth Scroll per i link interni
+    // 2. SMOOTH SCROLL PER I LINK
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
+            const href = this.getAttribute('href');
+            
+            // Se il link è solo "#", non fare nulla
+            if (href === "#") return;
+
             e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
+            const target = document.querySelector(href);
+            
             if (target) {
+                const headerOffset = 80;
+                const elementPosition = target.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
                 window.scrollTo({
-                    top: target.offsetTop - 70, // Offset per l'altezza della navbar
+                    top: offsetPosition,
                     behavior: 'smooth'
                 });
             }
         });
     });
-});
 
-// Aggiungi questo in fondo al tuo file script.js esistente
-const observerOptions = {
-    threshold: 0.2
-};
+    // 3. ANIMAZIONE CARD AL PASSAGGIO (Intersection Observer)
+    const cardObserverOptions = {
+        threshold: 0.15,
+        rootMargin: "0px 0px -50px 0px"
+    };
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = "1";
-            entry.target.style.transform = "translateY(0)";
-        }
+    const cardObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = "1";
+                entry.target.style.transform = "translateY(0)";
+                cardObserver.unobserve(entry.target); // Ferma l'osservazione dopo l'animazione
+            }
+        });
+    }, cardObserverOptions);
+
+    document.querySelectorAll('.card').forEach(card => {
+        // Setup iniziale per l'animazione
+        card.style.opacity = "0";
+        card.style.transform = "translateY(40px)";
+        card.style.transition = "all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94)";
+        cardObserver.observe(card);
     });
-}, observerOptions);
 
-document.querySelectorAll('.card').forEach(card => {
-    card.style.opacity = "0";
-    card.style.transform = "translateY(30px)";
-    card.style.transition = "all 0.6s ease-out";
-    observer.observe(card);
+    // 4. AZIONE CTA HERO
+    const heroBtn = document.querySelector('.hero-btn');
+    if(heroBtn) {
+        heroBtn.addEventListener('click', () => {
+            const contatti = document.querySelector('#contatti');
+            if(contatti) contatti.scrollIntoView({ behavior: 'smooth' });
+        });
+    }
 });
-
