@@ -143,7 +143,7 @@ body {
 /* --- FOOTER --- */
 .main-footer {
     background-color: #0c0c0c;
-    padding: 80px 0 20px 0;
+    padding: 40px 0 15px 0;
     border-top: 2px solid #ff3e3e;
     position: relative;
     z-index: 10;
@@ -182,11 +182,72 @@ body {
 
 .footer-bottom {
     text-align: center;
-    margin-top: 50px;
+    margin-top: 30px;
     padding-top: 20px;
     border-top: 1px solid #222;
     color: #555;
     font-size: 0.8rem;
+}
+
+/* Stile Icone Social - Aggiornato */
+.social-icons {
+    display: flex;
+    gap: 20px; /* Aumentato lo spazio tra le icone */
+    margin-top: 15px;
+}
+
+.social-icons a {
+    color: #ffffff !important; /* Forza il colore bianco */
+    text-decoration: none;     /* Rimuove sottolineature blu */
+    font-size: 1.8rem;         /* Icone molto più grandi (era 1.2rem) */
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.1); /* Cerchio di sfondo leggero */
+    width: 45px;               /* Cerchio più grande */
+    height: 45px;              /* Cerchio più grande */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;        /* Rende lo sfondo perfettamente tondo */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Sottile bordo bianco */
+}
+
+/* Effetto al passaggio del mouse */
+.social-icons a:hover {
+    color: #ff3e3e !important;  /* Diventa rosso brand al passaggio */
+    background: #ffffff;        /* Lo sfondo diventa bianco pieno */
+    transform: translateY(-5px); /* Salta leggermente verso l'alto */
+    border-color: #ff3e3e;
+}
+
+/* Rende i giorni (tag b) bianchi e più evidenti */
+b.days {
+    color: #ffffff !important;
+    display: block;
+    font-size: 1.0rem;
+}
+
+/* Rende gli orari leggermente meno luminosi per contrasto */
+.opening-hours-list span.time {
+    font-size: 0.9rem;
+}
+
+/* Correzione link Privacy & Cookie Policy */
+.footer-link {
+    color: #ffffff !important;
+    text-decoration: none;
+    opacity: 0.8;
+    transition: 0.3s;
+}
+
+.footer-link:hover {
+    opacity: 1;
+    color: #ff3e3e !important; /* Diventa rosso al passaggio */
+}
+
+/* Rimuove i pallini dalla lista orari se ancora presenti */
+.opening-hours-list {
+    list-style: none;
+    padding: 0;
 }
 
 /* ==========================================================================
