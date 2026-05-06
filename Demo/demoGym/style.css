@@ -52,14 +52,33 @@ body {
     padding: 0 5%;
 }
 
+/* --- LOGO E TESTO AFFIANCATI --- */
+
+.logo-container {
+    display: flex;
+    align-items: center;    /* Li allinea verticalmente al centro tra loro */
+    gap: 10px;              /* Controlla la distanza tra immagine e scritta */
+    text-decoration: none;
+}
+
+.logo-img {
+    width: 70px;            /* Dimensione fissa piccola */
+    height: auto;           /* Mantiene le proporzioni */
+    display: block;
+}
+
 .logo {
-    font-size: 1.8rem;
-    font-weight: 900;
-    text-transform: uppercase;
+    font-family: 'Segoe UI', sans-serif;
+    font-weight: 800;
+    font-size: 1.4rem;      /* Dimensione del testo */
+    color: white;           /* Colore base per MAI */
+    line-height: 1;         /* Elimina spazi extra sopra/sotto */
+    margin: 0;              /* Rimuove margini di default del div */
+    letter-spacing: 0.5px;
 }
 
 .logo span {
-    color: #2ecc71;
+    color: #2ecc71;         /* Verde per DOMI */
 }
 
 .nav-links {
