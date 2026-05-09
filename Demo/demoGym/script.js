@@ -68,3 +68,16 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+// Funzione per scorrere la galleria con le frecce
+function scrollGallery(direction) {
+    const container = document.getElementById('galleryScroll');
+    // Calcola quanto scorrere (circa la larghezza di un'immagine + lo spazio)
+    // Su mobile scorre meno per adattarsi allo schermo
+    const scrollAmount = window.innerWidth < 768 ? 300 : 420; 
+    
+    container.scrollBy({
+        left: scrollAmount * direction,
+        behavior: 'smooth'
+    });
+}
