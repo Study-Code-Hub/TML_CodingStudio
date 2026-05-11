@@ -81,3 +81,51 @@ function scrollGallery(direction) {
         behavior: 'smooth'
     });
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+    const cookieBanner = document.getElementById("cookie-banner");
+    const acceptBtn = document.getElementById("accept-cookies");
+    const rejectBtn = document.getElementById("reject-cookies");
+    
+    const mapIframe = document.getElementById("google-map");
+    const cookieWarning = document.getElementById("cookie-warning");
+    const mapWrapper = document.getElementById("map-wrapper");
+
+    // Controlla se l'utente ha già fatto una scelta salvata nel browser
+    const userConsent = localStorage.getItem("cookieConsent");
+
+    if (userConsent === "accepted") {
+        // Se ha già accettato, carica la mappa e tieni nascosto il banner
+        loadGoogleMap();
+    } else if (userConsent === "rejected") {
+        // Se ha rifiutato, la mappa resta bloccata
+        cookieBanner.style.display = "none";
+    } else {
+        // Se è la prima volta, mostra il banner
+        cookieBanner.style.display = "flex";
+    }
+
+    // Cosa succede se clicca "Accetta"
+    acceptBtn.addEventListener("click", function() {
+        localStorage.setItem("cookieConsent", "accepted"); // Salva la scelta
+        cookieBanner.style.display = "none"; // Nascondi il banner
+        loadGoogleMap(); // Mostra la mappa
+    });
+
+    // Cosa succede se clicca "Rifiuta"
+    rejectBtn.addEventListener("click", function() {
+        localStorage.setItem("cookieConsent", "rejected"); // Salva la scelta
+        cookieBanner.style.display = "none"; // Nascondi il banner (la mappa resta bloccata)
+    });
+
+    // Funzione per caricare la mappa
+    function loadGoogleMap() {
+        if(mapIframe) {
+            // Prende il link da data-src e lo mette in src
+            mapIframe.src = mapIframe.getAttribute("data-src");
+            mapIframe.style.display = "block"; // Mostra la mappa
+            if(cookieWarning) cookieWarning.style.display = "none"; // Nasconde il testo di avviso
+            if(mapWrapper) mapWrapper.style.padding = "0"; // Rimuove il padding del contenitore temporaneo
+        }
+    }
+});
