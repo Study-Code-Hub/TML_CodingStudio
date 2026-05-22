@@ -448,9 +448,14 @@ b.days {
     transform: scale(1.05);
 }
 
-.price-header h3 { font-size: 1.5rem; margin-bottom: 10px; }
-.price { font-size: 3rem; font-weight: 800; margin-bottom: 20px; }
-.price span { font-size: 1rem; color: #888; }
+.price-header h3 { font-size: 1.5rem; margin-bottom: 5px; }
+.price { font-size: 3rem; font-weight: 800; margin-bottom: 5px; }
+.price span { font-size: 1rem; color: #c7c5c5; }
+
+.price-header .price-subtext {
+    display: block;   /* Assicura che vada a capo sotto il prezzo */
+    margin-top: 2px;  /* Regola questo valore per avvicinarlo (accetta anche valori negativi, es: -5px) */
+}
 
 .price-features {
     list-style: none;
@@ -602,27 +607,49 @@ main > h2 span {
    7. RESPONSIVE DESIGN (MEDIA QUERIES)
    ========================================================================== */
 
-@media (max-width: 768px) {
-    .services-container {
-        margin-top: 20px;
-    }
-    
-    .nav-links { display: none; }
-    
-    .price-card.featured {
-        transform: scale(1);
-    }
+/* --- INTEGRAZIONE TESTI SERVICES CARDS --- */
 
-    .team-member, .team-member:nth-child(even) {
-        flex-direction: column;
-        text-align: center;
-        gap: 20px;
-    }
+/* Assicura che la card linkata si comporti correttamente e allinei i testi */
+a.card {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
 
-    .member-img-container {
-        width: 220px;
-        height: 220px;
-    }
+.card h3 {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    color: #ffffff;
+    transition: color 0.4s ease;
+}
+
+.card p {
+    color: #ccc;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    flex-grow: 1; /* Permette al link di stare sempre in fondo alla card */
+}
+
+/* Stile del link stile "pulsante testuale" */
+.card-link {
+    font-weight: bold;
+    color: #2ecc71; /* Il tuo verde brand */
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    transition: color 0.4s ease;
+}
+
+/* Effetti extra al passaggio del mouse */
+a.card:hover h3 {
+    color: #2ecc71; /* Il titolo diventa verde */
+}
+
+a.card:hover .card-link {
+    color: #ffffff; /* Il link diventa bianco per contrasto */
 }
 
 /* ==========================================================================
