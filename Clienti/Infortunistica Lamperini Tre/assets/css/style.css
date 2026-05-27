@@ -2,12 +2,11 @@
    STILI GENERALI E VARIABILI
    ========================================================================== */
 :root {
-    --primary-color: #0279b5;    /* IL TUO NUOVO COLORE: Azzurro principale */
-    --primary-dark: #015885;     /* Versione più scura dell'azzurro per gli effetti "hover" */
-    --accent-color: #cc0000;     /* Rosso per elementi in evidenza (es. bottoni CTA) */
-    --text-color: #333333;       /* Grigio scuro per i testi testuali */
-    --bg-light: #f4f7f6;         /* Grigio chiarissimo per sfondi sezioni */
-    --bg-white: #ffffff;
+    --primary-color: #0279b5;
+    --primary-dark: #015885;
+    --accent-color: #cc0000;
+    --text-color: #333333;
+    --bg-light: #f4f7f6;
     --footer-bg: #222222;
     --border-color: #eeeeee;
     --font-main: 'Helvetica Neue', Arial, sans-serif;
@@ -23,7 +22,6 @@ body {
     padding: 0;
     color: var(--text-color);
     line-height: 1.6;
-    /* Applico il grigiastro a tutta la pagina web */
     background-color: var(--bg-light); 
 }
 
@@ -33,53 +31,46 @@ a {
     transition: color 0.3s ease, background-color 0.3s ease;
 }
 
-/* Assicura che il logo non superi mai l'altezza del menù */
 .logo img {
-    max-height: 50px; /* Regola questa misura in base a quanto vuoi grande il logo */
+    max-height: 50px; 
     width: auto;
     transition: all 0.3s ease;
 }
 
-/* Opzionale: piccolissimo effetto al passaggio del mouse */
 .logo img:hover {
     opacity: 0.9;
     transform: scale(1.02);
 }
 
-/* Stile per contenitore logo + testo */
 .logo-link {
     display: flex;
     align-items: center;
-    gap: 12px; /* Spazio tra logo e scritta */
+    gap: 12px;
     text-decoration: none;
 }
 
 .logo-img {
-    height: 45px; /* Puoi regolare questa dimensione */
+    height: 45px;
     width: auto;
 }
 
 .logo-text {
     font-size: 1.4rem;
     font-weight: 700;
-    color: var(--bg-white); /* Bianco per risaltare sull'azzurro */
+    color: var(--bg-light);
     letter-spacing: 0.5px;
     text-transform: uppercase;
-    /* Opzionale: aggiungi un font particolare se ne hai uno specifico */
 }
 
-/* Effetto al passaggio del mouse (opzionale) */
 .logo-link:hover .logo-text {
     opacity: 0.8;
 }
 /* ==========================================================================
    HEADER E NAVIGAZIONE
    ========================================================================== */
-/* ==========================================================================
-   HEADER E NAVIGAZIONE (Migliorato)
-   ========================================================================== */
+
 header {
-    background-color: rgba(2, 121, 181, 0.92); /* Azzurro con leggera trasparenza */
+    background-color: rgba(2, 121, 181, 0.92); /* Azzurro con trasparenza per effetto vetro */
     backdrop-filter: blur(10px); /* Effetto vetro sfocato (Glassmorphism) */
     -webkit-backdrop-filter: blur(10px); /* Per Safari */
     color: var(--bg-white);
@@ -94,10 +85,9 @@ header {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Logo testuale più accattivante */
 .logo a {
     font-size: 1.8rem;
-    font-weight: 800; /* Più in grassetto */
+    font-weight: 800;
     letter-spacing: 1px;
     text-transform: uppercase;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
@@ -107,7 +97,7 @@ header {
 }
 
 .logo-highlight {
-    color: #ffcc00; /* Giallo acceso per la parola "Tre" */
+    color: #ffcc00;
     font-weight: 900;
 }
 
@@ -116,7 +106,7 @@ nav ul {
     list-style: none;
     display: flex;
     align-items: center;
-    gap: 30px; /* Spazio leggermente aumentato */
+    gap: 30px;
     margin: 0;
     padding: 0;
 }
@@ -144,7 +134,7 @@ nav a:not(.nav-btn)::after {
 
 nav a:not(.nav-btn):hover::after, 
 nav a.active:not(.nav-btn)::after {
-    width: 100%; /* La linea si allarga al passaggio del mouse */
+    width: 100%;
 }
 
 nav a:not(.nav-btn):hover {
@@ -157,14 +147,14 @@ nav a.nav-btn {
     background-color: #ffcc00;
     color: var(--primary-dark);
     padding: 10px 24px;
-    border-radius: 30px; /* Pulsante a forma di pillola */
+    border-radius: 30px;
     font-weight: bold;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     transition: all 0.3s ease;
 }
 
 nav a.nav-btn:hover {
-    background-color: #fff; /* Diventa bianco al passaggio del mouse */
+    background-color: #fff;
     color: var(--primary-color);
     transform: translateY(-2px);
     box-shadow: 0 6px 15px rgba(0,0,0,0.2);
@@ -175,7 +165,7 @@ nav a.nav-btn:hover {
     display: none;
     flex-direction: column;
     justify-content: space-between;
-    width: 28px; /* Leggermente più grande */
+    width: 28px;
     height: 20px;
     background: transparent;
     border: none;
@@ -208,10 +198,10 @@ nav a.nav-btn:hover {
    ========================================================================== */
 .hero-slider {
     position: relative;
-    height: 85vh; /* Leggermente più alto per respirare meglio */
+    height: 85vh;
     min-height: 600px;
     display: flex;
-    align-items: center; /* Centra verticalmente */
+    align-items: center;
     overflow: hidden;
 }
 
@@ -260,16 +250,15 @@ nav a.nav-btn:hover {
     margin: 0 auto;
     padding: 0 5%;
 }
-
-/* Il vero e proprio Box "Glassmorphism" per il testo */
+/* Box "Glassmorphism" per il testo */
 .hero-text-box {
-    background: rgba(255, 255, 255, 0.08); /* Bianco quasi trasparente */
-    backdrop-filter: blur(12px); /* Sfocatura dello sfondo (Effetto vetro) */
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.2);
     padding: 50px 45px;
     border-radius: 16px;
-    max-width: 650px; /* Larghezza controllata per massima leggibilità */
+    max-width: 650px;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
 }
 
@@ -282,17 +271,17 @@ nav a.nav-btn:hover {
     letter-spacing: 2px;
     font-weight: 700;
     display: inline-block;
-    background: rgba(0, 0, 0, 0.25); /* Sfondo scuro per farlo risaltare */
+    background: rgba(0, 0, 0, 0.25);
     padding: 6px 18px;
     border-radius: 30px;
 }
 
 .hero-text-box h1 {
-    color: var(--bg-white);
+    color: var(--bg-light);
     font-size: 3.2rem;
     margin: 0 0 20px 0;
     line-height: 1.15;
-    text-shadow: none; /* Tolta l'ombra perché il vetro garantisce la lettura */
+    text-shadow: none;
 }
 
 .highlight-text {
@@ -306,9 +295,8 @@ nav a.nav-btn:hover {
     line-height: 1.6;
 }
 
-/* Disposizione dei doppi bottoni */
 /* ==========================================================================
-   STILI DEI BOTTONI (Migliorati)
+   STILI DEI BOTTONI
    ========================================================================== */
 .hero-buttons {
     display: flex;
@@ -344,25 +332,25 @@ nav a.nav-btn:hover {
     transition: transform 0.3s ease;
 }
 .btn:hover .btn-icon {
-    transform: translateX(6px); /* La freccia avanza */
+    transform: translateX(6px);
 }
 
 /* Bottone Principale (Rosso) */
 .btn-primary {
-    background: linear-gradient(135deg, #e60000 0%, #b30000 100%); /* Sfumatura elegante */
+    background: linear-gradient(135deg, #e60000 0%, #b30000 100%);
     color: var(--bg-white);
     border: none;
-    box-shadow: 0 8px 20px rgba(204, 0, 0, 0.35); /* Bagliore rosso sotto il bottone */
+    box-shadow: 0 8px 20px rgba(204, 0, 0, 0.35);
 }
 
 .btn-primary:hover {
     background: linear-gradient(135deg, #ff1a1a 0%, #cc0000 100%);
-    box-shadow: 0 12px 25px rgba(204, 0, 0, 0.5); /* Il bagliore aumenta */
+    box-shadow: 0 12px 25px rgba(204, 0, 0, 0.5);
 }
 
 /* Bottone Secondario (Trasparente "Glass") */
 .btn-outline {
-    background-color: rgba(255, 255, 255, 0.05); /* Leggerissima patina bianca */
+    background-color: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     color: var(--bg-white);
@@ -380,16 +368,13 @@ nav a.nav-btn:hover {
 /* Adattamento per dispositivi mobili */
 @media (max-width: 768px) {
     .btn {
-        width: 100%; /* Sui telefoni i bottoni prendono tutta la larghezza */
+        width: 100%;
         padding: 15px 20px;
     }
 }
 
 /* ==========================================================================
    SEZIONI CONTENUTO (GRID & CARDS - Colonne)
-   ========================================================================== */
-/* ==========================================================================
-   SEZIONI CONTENUTO E CARDS (Migliorate)
    ========================================================================== */
 .section {
     padding: 90px 5%;
@@ -436,9 +421,9 @@ nav a.nav-btn:hover {
 .card {
     background: var(--bg-white);
     padding: 40px;
-    border-radius: 16px; /* Arrotondamento più morbido e moderno */
+    border-radius: 16px;
     flex: 1 1 calc(50% - 20px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.06); /* Ombra diffusa e leggera */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
     display: flex;
     flex-direction: column;
     transition: all 0.4s ease;
@@ -447,17 +432,17 @@ nav a.nav-btn:hover {
 
 /* Animazione Card al passaggio del mouse */
 .card:hover {
-    transform: translateY(-10px); /* Si solleva */
-    box-shadow: 0 20px 40px rgba(0,0,0,0.12); /* L'ombra aumenta */
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.12);
 }
 
-/* Design personalizzato Card Studio Infortunistica (Azzurro) */
+/* Design Card Studio Infortunistica (Azzurro) */
 .card-studio {
     border-top: 5px solid var(--primary-color);
 }
 .card-studio .card-icon {
     color: var(--primary-color);
-    background-color: rgba(2, 121, 181, 0.1); /* Sfondo azzurro trasparente */
+    background-color: rgba(2, 121, 181, 0.1);
 }
 .card-studio h3 { color: var(--primary-color); }
 .card-studio .card-link { color: var(--primary-color); }
@@ -470,7 +455,7 @@ nav a.nav-btn:hover {
 }
 .card-sanluca .card-icon {
     color: #008080;
-    background-color: rgba(0, 128, 128, 0.1); /* Sfondo verde trasparente */
+    background-color: rgba(0, 128, 128, 0.1);
 }
 .card-sanluca h3 { color: #008080; }
 .card-sanluca .card-link { color: #008080; }
@@ -491,7 +476,7 @@ nav a.nav-btn:hover {
 }
 
 .card:hover .card-icon {
-    transform: scale(1.1) rotate(-5deg); /* Piccola animazione dell'icona */
+    transform: scale(1.1) rotate(-5deg);
 }
 
 .card h3 {
@@ -505,7 +490,7 @@ nav a.nav-btn:hover {
     color: #555;
     font-size: 1.05rem;
     margin-bottom: 25px;
-    flex-grow: 1; /* Allinea il footer in basso se i paragrafi hanno lunghezze diverse */
+    flex-grow: 1;
 }
 
 /* Liste senza pallini ma con le Spunte (Checkmarks) */
@@ -525,7 +510,7 @@ nav a.nav-btn:hover {
 }
 
 .custom-list li::before {
-    content: '✔'; /* Spunta */
+    content: '✔';
     position: absolute;
     left: 0;
     top: 0;
@@ -554,7 +539,7 @@ nav a.nav-btn:hover {
 }
 
 .card-link:hover .arrow {
-    transform: translateX(6px); /* La freccina si sposta in avanti al passaggio del mouse */
+    transform: translateX(6px);
 }
 
 /* Media query per tablet e mobile */
@@ -565,15 +550,12 @@ nav a.nav-btn:hover {
 /* ==========================================================================
    FOOTER
    ========================================================================== */
-/* ==========================================================================
-   FOOTER (Migliorato con Google Maps)
-   ========================================================================== */
 .main-footer {
-    background-color: var(--footer-bg); /* Sfondo scuro */
+    background-color: var(--footer-bg);
     color: #e0e0e0;
     padding: 60px 5% 20px 5%;
     font-size: 0.95rem;
-    border-top: 5px solid var(--primary-color); /* Linea azzurra in cima */
+    border-top: 5px solid var(--primary-color);
 }
 
 .footer-grid {
@@ -586,7 +568,7 @@ nav a.nav-btn:hover {
 }
 
 .footer-col {
-    flex: 1 1 300px; /* Le colonne si allargano bene in proporzione */
+    flex: 1 1 300px;
 }
 
 .footer-col h4 {
@@ -607,15 +589,15 @@ nav a.nav-btn:hover {
 
 /* Stile per i box degli orari */
 .orari-box {
-    background: rgba(255, 255, 255, 0.05); /* Riquadro leggermente schiarito */
+    background: rgba(255, 255, 255, 0.05);
     padding: 15px 20px;
     border-radius: 8px;
     margin-bottom: 15px;
-    border-left: 3px solid var(--primary-color); /* Lineetta azzurra a sinistra */
+    border-left: 3px solid var(--primary-color);
 }
 
 .struttura-titolo {
-    color: #ffcc00; /* Giallo per i nomi delle strutture */
+    color: #ffcc00;
     margin-top: 0 !important;
     font-size: 1.05rem;
     font-weight: bold;
@@ -658,7 +640,7 @@ nav a.nav-btn:hover {
 }
 
 .footer-bottom a:hover {
-    color: #ffcc00; /* I link finali diventano gialli al passaggio del mouse */
+    color: #ffcc00; 
 }
 /* ==========================================================================
    MEDIA QUERIES (RESPONSIVE per cellulari e tablet)
@@ -678,7 +660,7 @@ nav a.nav-btn:hover {
     }
 
     .menu-toggle {
-        display: flex; /* Mostra bottone menu su mobile */
+        display: flex;
     }
 
     /* Menu di navigazione trasformato in tendina laterale/verticale */
@@ -695,7 +677,7 @@ nav a.nav-btn:hover {
     }
 
     nav.open {
-        max-height: 350px; /* Altezza per i link del menu a tendina */
+        max-height: 350px;
     }
 
     nav ul {
