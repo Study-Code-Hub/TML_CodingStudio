@@ -1,0 +1,718 @@
+/* ==========================================================================
+   STILI GENERALI E VARIABILI
+   ========================================================================== */
+:root {
+    --primary-color: #0279b5;    /* IL TUO NUOVO COLORE: Azzurro principale */
+    --primary-dark: #015885;     /* Versione più scura dell'azzurro per gli effetti "hover" */
+    --accent-color: #cc0000;     /* Rosso per elementi in evidenza (es. bottoni CTA) */
+    --text-color: #333333;       /* Grigio scuro per i testi testuali */
+    --bg-light: #f4f7f6;         /* Grigio chiarissimo per sfondi sezioni */
+    --bg-white: #ffffff;
+    --footer-bg: #222222;
+    --border-color: #eeeeee;
+    --font-main: 'Helvetica Neue', Arial, sans-serif;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-main);
+    margin: 0;
+    padding: 0;
+    color: var(--text-color);
+    line-height: 1.6;
+    /* Applico il grigiastro a tutta la pagina web */
+    background-color: var(--bg-light); 
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+/* Assicura che il logo non superi mai l'altezza del menù */
+.logo img {
+    max-height: 50px; /* Regola questa misura in base a quanto vuoi grande il logo */
+    width: auto;
+    transition: all 0.3s ease;
+}
+
+/* Opzionale: piccolissimo effetto al passaggio del mouse */
+.logo img:hover {
+    opacity: 0.9;
+    transform: scale(1.02);
+}
+
+/* Stile per contenitore logo + testo */
+.logo-link {
+    display: flex;
+    align-items: center;
+    gap: 12px; /* Spazio tra logo e scritta */
+    text-decoration: none;
+}
+
+.logo-img {
+    height: 45px; /* Puoi regolare questa dimensione */
+    width: auto;
+}
+
+.logo-text {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--bg-white); /* Bianco per risaltare sull'azzurro */
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    /* Opzionale: aggiungi un font particolare se ne hai uno specifico */
+}
+
+/* Effetto al passaggio del mouse (opzionale) */
+.logo-link:hover .logo-text {
+    opacity: 0.8;
+}
+/* ==========================================================================
+   HEADER E NAVIGAZIONE
+   ========================================================================== */
+/* ==========================================================================
+   HEADER E NAVIGAZIONE (Migliorato)
+   ========================================================================== */
+header {
+    background-color: rgba(2, 121, 181, 0.92); /* Azzurro con leggera trasparenza */
+    backdrop-filter: blur(10px); /* Effetto vetro sfocato (Glassmorphism) */
+    -webkit-backdrop-filter: blur(10px); /* Per Safari */
+    color: var(--bg-white);
+    padding: 15px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15); /* Ombra più morbida e ampia */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Logo testuale più accattivante */
+.logo a {
+    font-size: 1.8rem;
+    font-weight: 800; /* Più in grassetto */
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.logo-highlight {
+    color: #ffcc00; /* Giallo acceso per la parola "Tre" */
+    font-weight: 900;
+}
+
+/* Navigazione */
+nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 30px; /* Spazio leggermente aumentato */
+    margin: 0;
+    padding: 0;
+}
+
+nav a {
+    color: var(--bg-white);
+    font-weight: 500;
+    padding: 8px 0;
+    position: relative; /* Necessario per l'animazione della linea */
+    font-size: 1.05rem;
+}
+
+/* Animazione linea sotto i link normali */
+nav a:not(.nav-btn)::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background-color: #ffcc00;
+    transition: width 0.3s ease;
+}
+
+nav a:not(.nav-btn):hover::after, 
+nav a.active:not(.nav-btn)::after {
+    width: 100%; /* La linea si allarga al passaggio del mouse */
+}
+
+nav a:not(.nav-btn):hover {
+    color: #ffffff;
+    text-shadow: 0 0 8px rgba(255,255,255,0.3); /* Leggero bagliore */
+}
+
+/* Stile per il pulsante "Contatti" nel menù */
+nav a.nav-btn {
+    background-color: #ffcc00;
+    color: var(--primary-dark);
+    padding: 10px 24px;
+    border-radius: 30px; /* Pulsante a forma di pillola */
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+nav a.nav-btn:hover {
+    background-color: #fff; /* Diventa bianco al passaggio del mouse */
+    color: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+/* Menu Hamburger (Nascosto di base su Desktop) */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px; /* Leggermente più grande */
+    height: 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+}
+
+.menu-toggle span {
+    width: 100%;
+    height: 3px;
+    background-color: var(--bg-white);
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+/* Animazione menu mobile */
+.menu-toggle.open span:nth-child(1) {
+    transform: translateY(8.5px) rotate(45deg);
+}
+.menu-toggle.open span:nth-child(2) {
+    opacity: 0;
+}
+.menu-toggle.open span:nth-child(3) {
+    transform: translateY(-8.5px) rotate(-45deg);
+}
+
+/* ==========================================================================
+   HERO SECTION CON SLIDER E BOX IN VETRO
+   ========================================================================== */
+.hero-slider {
+    position: relative;
+    height: 85vh; /* Leggermente più alto per respirare meglio */
+    min-height: 600px;
+    display: flex;
+    align-items: center; /* Centra verticalmente */
+    overflow: hidden;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    animation: fadeAnimation 15s infinite;
+    z-index: 1;
+}
+
+.slide:nth-child(1) { animation-delay: 0s; }
+.slide:nth-child(2) { animation-delay: 5s; }
+.slide:nth-child(3) { animation-delay: 10s; }
+
+@keyframes fadeAnimation {
+    0%   { opacity: 0; transform: scale(1.05); }
+    10%  { opacity: 1; transform: scale(1); }
+    33%  { opacity: 1; transform: scale(1); }
+    43%  { opacity: 0; transform: scale(1.05); }
+    100% { opacity: 0; }
+}
+
+/* Sfumatura che parte dall'azzurro del sito e sfuma verso destra */
+.slider-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(2, 121, 181, 0.95) 0%, rgba(2, 50, 80, 0.5) 55%, rgba(0,0,0,0) 100%);
+    z-index: 2;
+}
+
+/* Contenitore per allineare il box a sinistra */
+.hero-content {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5%;
+}
+
+/* Il vero e proprio Box "Glassmorphism" per il testo */
+.hero-text-box {
+    background: rgba(255, 255, 255, 0.08); /* Bianco quasi trasparente */
+    backdrop-filter: blur(12px); /* Sfocatura dello sfondo (Effetto vetro) */
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 50px 45px;
+    border-radius: 16px;
+    max-width: 650px; /* Larghezza controllata per massima leggibilità */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+/* Badge del titolo H2 */
+.hero-text-box h2 {
+    color: #ffcc00;
+    font-size: 1rem;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+    font-weight: 700;
+    display: inline-block;
+    background: rgba(0, 0, 0, 0.25); /* Sfondo scuro per farlo risaltare */
+    padding: 6px 18px;
+    border-radius: 30px;
+}
+
+.hero-text-box h1 {
+    color: var(--bg-white);
+    font-size: 3.2rem;
+    margin: 0 0 20px 0;
+    line-height: 1.15;
+    text-shadow: none; /* Tolta l'ombra perché il vetro garantisce la lettura */
+}
+
+.highlight-text {
+    color: #ffcc00;
+}
+
+.hero-text-box p {
+    font-size: 1.2rem;
+    margin: 0 0 35px 0;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+}
+
+/* Disposizione dei doppi bottoni */
+/* ==========================================================================
+   STILI DEI BOTTONI (Migliorati)
+   ========================================================================== */
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+/* Stile Base Bottoni */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Spazio tra testo e freccia */
+    padding: 16px 35px;
+    border-radius: 50px; /* Forma a pillola molto moderna */
+    font-weight: 700;
+    font-size: 1.05rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* Animazione fluidissima */
+    cursor: pointer;
+}
+
+/* Animazione spinta verso l'alto al passaggio del mouse */
+.btn:hover {
+    transform: translateY(-5px);
+}
+
+/* Animazione della piccola freccia */
+.btn-icon {
+    transition: transform 0.3s ease;
+}
+.btn:hover .btn-icon {
+    transform: translateX(6px); /* La freccia avanza */
+}
+
+/* Bottone Principale (Rosso) */
+.btn-primary {
+    background: linear-gradient(135deg, #e60000 0%, #b30000 100%); /* Sfumatura elegante */
+    color: var(--bg-white);
+    border: none;
+    box-shadow: 0 8px 20px rgba(204, 0, 0, 0.35); /* Bagliore rosso sotto il bottone */
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #ff1a1a 0%, #cc0000 100%);
+    box-shadow: 0 12px 25px rgba(204, 0, 0, 0.5); /* Il bagliore aumenta */
+}
+
+/* Bottone Secondario (Trasparente "Glass") */
+.btn-outline {
+    background-color: rgba(255, 255, 255, 0.05); /* Leggerissima patina bianca */
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    color: var(--bg-white);
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.btn-outline:hover {
+    background-color: var(--bg-white); /* Diventa bianco pieno */
+    color: var(--primary-color); /* Il testo prende il tuo azzurro #0279b5 */
+    border-color: var(--bg-white);
+    box-shadow: 0 12px 25px rgba(255, 255, 255, 0.25);
+}
+
+/* Adattamento per dispositivi mobili */
+@media (max-width: 768px) {
+    .btn {
+        width: 100%; /* Sui telefoni i bottoni prendono tutta la larghezza */
+        padding: 15px 20px;
+    }
+}
+
+/* ==========================================================================
+   SEZIONI CONTENUTO (GRID & CARDS - Colonne)
+   ========================================================================== */
+/* ==========================================================================
+   SEZIONI CONTENUTO E CARDS (Migliorate)
+   ========================================================================== */
+.section {
+    padding: 90px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    color: var(--primary-color);
+    text-align: center;
+    font-size: 2.6rem;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+/* Linea colorata sotto il titolo rimessa in un contenitore inline */
+.section-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background-color: var(--accent-color);
+    border-radius: 2px;
+    margin: 15px auto 0 auto;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: #666;
+    font-size: 1.15rem;
+    margin-bottom: 50px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.grid-container {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+/* Stile Base delle due Card */
+.card {
+    background: var(--bg-white);
+    padding: 40px;
+    border-radius: 16px; /* Arrotondamento più morbido e moderno */
+    flex: 1 1 calc(50% - 20px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.06); /* Ombra diffusa e leggera */
+    display: flex;
+    flex-direction: column;
+    transition: all 0.4s ease;
+    border: 1px solid rgba(0,0,0,0.03);
+}
+
+/* Animazione Card al passaggio del mouse */
+.card:hover {
+    transform: translateY(-10px); /* Si solleva */
+    box-shadow: 0 20px 40px rgba(0,0,0,0.12); /* L'ombra aumenta */
+}
+
+/* Design personalizzato Card Studio Infortunistica (Azzurro) */
+.card-studio {
+    border-top: 5px solid var(--primary-color);
+}
+.card-studio .card-icon {
+    color: var(--primary-color);
+    background-color: rgba(2, 121, 181, 0.1); /* Sfondo azzurro trasparente */
+}
+.card-studio h3 { color: var(--primary-color); }
+.card-studio .card-link { color: var(--primary-color); }
+.card-studio .card-link:hover { color: var(--primary-dark); }
+.card-studio .custom-list li::before { color: var(--primary-color); }
+
+/* Design personalizzato Card Centro San Luca (Verde Acqua / Teal) */
+.card-sanluca {
+    border-top: 5px solid #008080;
+}
+.card-sanluca .card-icon {
+    color: #008080;
+    background-color: rgba(0, 128, 128, 0.1); /* Sfondo verde trasparente */
+}
+.card-sanluca h3 { color: #008080; }
+.card-sanluca .card-link { color: #008080; }
+.card-sanluca .card-link:hover { color: #005959; }
+.card-sanluca .custom-list li::before { color: #008080; }
+
+/* Icona circolare in alto */
+.card-icon {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.2rem;
+    margin-bottom: 25px;
+    transition: transform 0.4s ease;
+}
+
+.card:hover .card-icon {
+    transform: scale(1.1) rotate(-5deg); /* Piccola animazione dell'icona */
+}
+
+.card h3 {
+    font-size: 1.6rem;
+    margin-top: 0;
+    margin-bottom: 15px;
+    line-height: 1.3;
+}
+
+.card p {
+    color: #555;
+    font-size: 1.05rem;
+    margin-bottom: 25px;
+    flex-grow: 1; /* Allinea il footer in basso se i paragrafi hanno lunghezze diverse */
+}
+
+/* Liste senza pallini ma con le Spunte (Checkmarks) */
+.custom-list {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 30px;
+}
+
+.custom-list li {
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    color: #444;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.custom-list li::before {
+    content: '✔'; /* Spunta */
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* Area dei Link in fondo alle card */
+.card-footer {
+    margin-top: auto;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+
+.card-link {
+    font-weight: 700;
+    font-size: 1.05rem;
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none !important;
+}
+
+.card-link .arrow {
+    margin-left: 8px;
+    transition: transform 0.3s ease;
+}
+
+.card-link:hover .arrow {
+    transform: translateX(6px); /* La freccina si sposta in avanti al passaggio del mouse */
+}
+
+/* Media query per tablet e mobile */
+@media (max-width: 900px) {
+    .card { flex: 1 1 100%; }
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+/* ==========================================================================
+   FOOTER (Migliorato con Google Maps)
+   ========================================================================== */
+.main-footer {
+    background-color: var(--footer-bg); /* Sfondo scuro */
+    color: #e0e0e0;
+    padding: 60px 5% 20px 5%;
+    font-size: 0.95rem;
+    border-top: 5px solid var(--primary-color); /* Linea azzurra in cima */
+}
+
+.footer-grid {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-col {
+    flex: 1 1 300px; /* Le colonne si allargano bene in proporzione */
+}
+
+.footer-col h4 {
+    color: var(--bg-white);
+    margin-bottom: 25px;
+    font-size: 1.3rem;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-col p {
+    margin: 8px 0;
+    line-height: 1.6;
+}
+
+/* Stile per i box degli orari */
+.orari-box {
+    background: rgba(255, 255, 255, 0.05); /* Riquadro leggermente schiarito */
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    border-left: 3px solid var(--primary-color); /* Lineetta azzurra a sinistra */
+}
+
+.struttura-titolo {
+    color: #ffcc00; /* Giallo per i nomi delle strutture */
+    margin-top: 0 !important;
+    font-size: 1.05rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Contenitore Mappa */
+.map-container {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.map-container:hover {
+    transform: translateY(-3px); /* Effetto sollevamento sulla mappa */
+}
+
+.map-container iframe {
+    display: block;
+    width: 100%;
+}
+
+/* Base del Footer */
+.footer-bottom {
+    text-align: center;
+    margin-top: 50px;
+    padding-top: 25px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.85rem;
+    color: #888;
+}
+
+.footer-bottom a {
+    color: #aaa;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.footer-bottom a:hover {
+    color: #ffcc00; /* I link finali diventano gialli al passaggio del mouse */
+}
+/* ==========================================================================
+   MEDIA QUERIES (RESPONSIVE per cellulari e tablet)
+   ========================================================================== */
+@media (max-width: 900px) {
+    .card {
+        flex: 1 1 100%;
+    }
+    .hero-content h1 {
+        font-size: 2.3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 15px 5%;
+    }
+
+    .menu-toggle {
+        display: flex; /* Mostra bottone menu su mobile */
+    }
+
+    /* Menu di navigazione trasformato in tendina laterale/verticale */
+    nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--primary-color);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-in-out;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    nav.open {
+        max-height: 350px; /* Altezza per i link del menu a tendina */
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 0;
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    nav a {
+        display: block;
+        padding: 12px 0;
+        border-bottom: none;
+    }
+    
+    nav a:hover, nav a.active {
+        background-color: var(--primary-dark);
+        border-bottom: none;
+    }
+}
