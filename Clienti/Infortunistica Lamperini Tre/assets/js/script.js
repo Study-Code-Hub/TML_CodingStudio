@@ -1,5 +1,9 @@
+/**
+ * SCRIPT UNICO E PULITO - INFORTUNISTICA LAMPERINI TRE
+ */
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Gestione Menu Hamburger
+    
+    // 1. GESTIONE MENU
     const menuToggle = document.getElementById('menuToggle');
     const mainNav = document.getElementById('mainNav');
 
@@ -9,7 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
             mainNav.classList.toggle('open');
         });
         
-        // Chiude il menu dopo il clic su un link
         mainNav.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 menuToggle.classList.remove('open');
@@ -18,29 +21,21 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 2. Gestione Carosello Manuale (solo se esistono i bottoni nella pagina)
+    // 2. GESTIONE CAROSELLO
     const slides = document.querySelectorAll('.carousel-item');
-    const nextBtn = document.querySelector('.next-btn');
-    const prevBtn = document.querySelector('.prev-btn');
-    
-    if (slides.length > 0 && nextBtn && prevBtn) {
+    if (slides.length > 0) {
+        const nextBtn = document.querySelector('.next-btn');
+        const prevBtn = document.querySelector('.prev-btn');
         let currentSlide = 0;
 
         function showSlide(index) {
-            slides.forEach(slide => slide.classList.remove('active'));
+            slides.forEach(s => s.classList.remove('active'));
             if (index >= slides.length) currentSlide = 0;
             if (index < 0) currentSlide = slides.length - 1;
             slides[currentSlide].classList.add('active');
         }
 
-        nextBtn.addEventListener('click', () => {
-            currentSlide++;
-            showSlide(currentSlide);
-        });
-
-        prevBtn.addEventListener('click', () => {
-            currentSlide--;
-            showSlide(currentSlide);
-        });
+        if (nextBtn) nextBtn.addEventListener('click', () => showSlide(++currentSlide));
+        if (prevBtn) prevBtn.addEventListener('click', () => showSlide(--currentSlide));
     }
 });
