@@ -337,20 +337,20 @@ nav a.nav-btn:hover {
 
 /* Bottone Principale (Rosso) */
 .btn-primary {
-    background: linear-gradient(135deg, #e60000 0%, #b30000 100%);
+    background: linear-gradient(135deg, #ffffff 0%, var(--primary-color) 100%);
     color: var(--bg-white);
     border: none;
-    box-shadow: 0 8px 20px rgba(204, 0, 0, 0.35);
+    box-shadow: 0 8px 20px;
 }
 
 .btn-primary:hover {
-    background: linear-gradient(135deg, #ff1a1a 0%, #cc0000 100%);
-    box-shadow: 0 12px 25px rgba(204, 0, 0, 0.5);
+    background: linear-gradient(135deg, #ffffff 0%, var(--primary-color) 100%);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); 
 }
 
 /* Bottone Secondario (Trasparente "Glass") */
 .btn-outline {
-    background-color: rgba(255, 255, 255, 0.05);
+    background: linear-gradient(135deg, #ffffff 0%, var(--primary-color) 100%);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     color: var(--bg-white);
@@ -359,18 +359,10 @@ nav a.nav-btn:hover {
 }
 
 .btn-outline:hover {
-    background-color: var(--bg-white); /* Diventa bianco pieno */
+    background: linear-gradient(135deg, #ffffff 0%, var(--primary-color) 100%); /* Diventa bianco pieno */
     color: var(--primary-color); /* Il testo prende il tuo azzurro #0279b5 */
     border-color: var(--bg-white);
     box-shadow: 0 12px 25px rgba(255, 255, 255, 0.25);
-}
-
-/* Adattamento per dispositivi mobili */
-@media (max-width: 768px) {
-    .btn {
-        width: 100%;
-        padding: 15px 20px;
-    }
 }
 
 /* ==========================================================================
@@ -542,11 +534,6 @@ nav a.nav-btn:hover {
     transform: translateX(6px);
 }
 
-/* Media query per tablet e mobile */
-@media (max-width: 900px) {
-    .card { flex: 1 1 100%; }
-}
-
 /* ==========================================================================
    FOOTER
    ========================================================================== */
@@ -696,5 +683,292 @@ nav a.nav-btn:hover {
     nav a:hover, nav a.active {
         background-color: var(--primary-dark);
         border-bottom: none;
+    }
+}
+
+        /* ==========================================================================
+   PAGINA CHI SIAMO
+   ========================================================================== */
+
+.split-layout {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: stretch; /* Fa sì che le due colonne abbiano la stessa altezza visiva */
+            /* max-width: 1200px; */
+            margin: 80px auto;
+            padding: 0 5%;
+        }
+
+        /* Colonna di sinistra (Testo) e Destra (Carosello) occupano il 50% */
+        .split-text, .manual-carousel {
+            flex: 1 1 calc(50% - 20px);
+            min-width: 320px; /* Evita che diventino troppo stretti prima di andare a capo su tablet */
+        }
+
+        .manual-carousel {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+            min-height: 450px; /* Altezza minima per garantire che le foto si vedano bene */
+        }
+
+        .carousel-item {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 0.6s ease-in-out;
+            z-index: 1;
+        }
+
+        .carousel-item.active {
+            opacity: 1;
+            z-index: 2;
+        }
+
+        /* Frecce di navigazione */
+        .carousel-control {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.4);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .carousel-control:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .prev-btn { left: 20px; }
+        .next-btn { right: 20px; }
+
+ /* ==========================================================================
+   PAGINA SERVIZI
+   ========================================================================== */
+
+/* Forza lo sfondo chiaro per la pagina servizi */
+.page-servizi {
+    background-color: var(--bg-light);
+}
+
+.services-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 60px auto 40px auto;
+    padding: 0 5%;
+}
+
+.services-header h1 {
+    color: var(--primary-color);
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.services-header p {
+    font-size: 1.15rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+.services-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    /* max-width: 1200px; */
+    margin: 0 auto 80px auto;
+    padding: 0 5%;
+}
+
+.service-card {
+    background: #ffffff;
+    padding: 40px 30px;
+    border-radius: 12px;
+    flex: 1 1 calc(33.333% - 30px);
+    min-width: 300px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-top: 4px solid var(--primary-color);
+    display: flex;
+    flex-direction: column;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+.service-icon {
+    font-size: 2.5rem;
+    margin: 0 auto 20px auto; 
+    color: var(--primary-color);
+    background: rgba(2, 121, 181, 0.1);
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.service-card h3 {
+    color: #333;
+    font-size: 1.4rem;
+    margin-top: 0;
+    margin-bottom: 15px;
+    line-height: 1.3;
+    text-align: center;
+}
+
+.service-card p {
+    color: #666;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.service-card-sanluca {
+    border-top: 4px solid var(--primary-color);
+}
+
+.service-card-sanluca .service-icon {
+    color: var(--primary-color);
+    background: rgba(0, 128, 128, 0.1);
+}
+
+.card-bullet-list {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    color: #555;
+    flex-grow: 1;
+}
+
+.card-bullet-list li {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 8px; /* Ottimizzato per liste lunghe */
+}
+
+/* Colora il pallino (bullet) */
+.card-bullet-list li::marker {
+    color: var(--primary-color);
+    font-size: 1.1em;
+}
+
+.service-card-sanluca .card-bullet-list li::marker {
+    color: var(--primary-color);
+}
+
+/* ==========================================================================
+   STILI PER LE CARD CON IMMAGINE IN ALTO (Terapie San Luca)
+   ========================================================================== */
+.service-card-image {
+    padding: 0 !important; 
+    overflow: hidden; 
+    display: flex;
+    flex-direction: column;
+}
+
+/* Stile dell'immagine in cima alla card */
+.card-top-img {
+    width: 100%;
+    height: 220px; 
+    object-fit: cover; 
+    border-bottom: 4px solid var(--primary-color);
+    transition: transform 0.5s ease;
+}
+
+/* Effetto zoom leggero sull'immagine quando passi sopra la card */
+.service-card-image:hover .card-top-img {
+    transform: scale(1.05);
+}
+
+/* Contenitore per il testo sotto l'immagine */
+.card-content {
+    padding: 30px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Colora i pallini di queste specifiche liste di verde acqua */
+.sanluca-list li::marker {
+    color: var(--primary-color);
+    font-size: 1.2em;
+}
+
+/* ==========================================================================
+   LAYOUT SPECIALE: 1 CARD + 1 CAROSELLO DOPPIO (Trattamenti)
+   ========================================================================== */
+
+/* ==========================================================================
+   LAYOUT CORRETTO GRIGLIA TRATTAMENTI + CAROSELLO
+   ========================================================================== */
+
+/* Assicura che la sezione che contiene tutto abbia il flexbox attivo */
+.services-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    /* max-width: 1200px; */
+    margin: 0 auto 80px auto;
+    padding: 0 5%;
+}
+
+/* Forza le card a essere il 30% circa */
+.service-card-image, .card-locked {
+    flex: 1 1 300px; 
+    max-width: 380px;
+}
+
+/* Forza il carosello a occupare il resto dello spazio o andare a capo */
+.double-width-carousel {
+    flex: 1 1 600px;
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    min-height: 400px;
+}
+
+/* ANIMAZIONE E OVERLAY (invariati) */
+.auto-slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; opacity: 0; animation: autoFade 12s infinite; }
+.auto-slide:nth-child(1) { animation-delay: 0s; }
+.auto-slide:nth-child(2) { animation-delay: 4s; }
+.auto-slide:nth-child(3) { animation-delay: 8s; }
+@keyframes autoFade { 0% { opacity: 0; } 10% { opacity: 1; } 33% { opacity: 1; } 43% { opacity: 0; } 100% { opacity: 0; } }
+
+.carousel-overlay { position: absolute; bottom: 0; left: 0; width: 100%; padding: 30px; background: linear-gradient(to top, var(--primary-color), transparent); color: white; z-index: 2; }
+
+/* FIX FOOTER: Assicura che il footer sia sempre sotto */
+.main-footer { clear: both; width: 100%; margin-top: 50px; }
+
+/* MEDIA QUERY SEMPLIFICATA PER RESPONSIVENESS */
+@media (max-width: 900px) {
+    .service-card-image, .card-locked, .double-width-carousel {
+        flex: 1 1 100%;
+        max-width: 100%;
     }
 }

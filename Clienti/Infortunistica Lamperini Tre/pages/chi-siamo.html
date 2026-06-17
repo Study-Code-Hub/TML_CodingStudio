@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi Siamo | Infortunistica Lamperini Tre</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="logo">
+            <a href="../index.html" class="logo-link">
+                <img src="../assets/logo/L3_BIANCO.svg" alt="Logo L3" class="logo-img">
+                <span class="logo-text">Lamperini Tre</span>
+            </a>
+        </div>
+        <button class="menu-toggle" id="menuToggle" aria-label="Apri menu">
+            <span></span><span></span><span></span>
+        </button>
+        <nav id="mainNav">
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="chi-siamo.html" class="active">Chi Siamo</a></li>
+                <li><a href="servizi.html">Servizi</a></li>
+                <li><a href="centro-san-luca.html">Centro San Luca</a></li>
+                <li><a href="contatti.html" class="nav-btn">Contatti</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- CONTENUTO PRINCIPALE (Testo a SX, Carosello a DX) -->
+    <section class="split-layout">
+        
+        <!-- PARTE SINISTRA: Testo -->
+        <div class="card split-text" style="padding: 50px; margin: 0;">
+            <h1 style="text-align: center; color: var(--primary-color); font-size: 2.8rem; margin-top: 0; margin-bottom: 25px; text-transform: uppercase; letter-spacing: 1px;">
+                Chi Siamo
+            </h1>
+            
+            <p style="font-size: 1.1rem; line-height: 1.8; color: #444; margin-bottom: 20px;">
+                <strong>Da oltre 30 anni presenti sul territorio di Reggio Emilia</strong>, lo Studio Infortunistica Lamperini Tre, insieme al Poliambulatorio Specialistico Privato e Centro Fisioterapico San Luca, fornisce assistenza alla definizione di pratiche infortunistiche in genere.
+            </p>
+            
+            <p style="font-size: 1.1rem; line-height: 1.8; color: #444; margin-bottom: 20px;">
+                Operiamo attraverso visite Specialistiche di: ortopedia, fisiatria, neurologia, chirurgia generale, angiologia, chirurgia plastica ricostruttiva e medicina legale. Ci avvaliamo inoltre di collaboratori esterni tra cui: otorinolaringoiatra, chirurgia della mano, odontoiatra, ortodontista, psichiatra per sedute di psicoterapie, logopedia e nutrizionista.
+            </p>
+
+            <p style="font-size: 1.1rem; line-height: 1.8; color: #444; margin-bottom: 0;">
+                Particolare cura viene posta ai trattamenti riabilitativi post-traumatici, post-operatori, riabilitazione neurologica, riabilitazione in ambito sportivo, ginnastica posturale e dolce, linfodrenaggio manuale, trattamenti di massoterapia e all'utilizzo di apparecchiature elettromedicali all'avanguardia. Completiamo il nostro servizio anche con <strong>trattamenti a domicilio</strong> o trasporto del paziente dal domicilio alla Struttura.
+            </p>
+        </div>
+
+        <!-- PARTE DESTRA: Carosello -->
+        <div class="manual-carousel">
+            <div class="carousel-item active" style="background-image: url('../assets/images/immagine1.webp');"></div>
+            <div class="carousel-item" style="background-image: url('../assets/images/immagine2.webp');"></div>
+            <div class="carousel-item" style="background-image: url('../assets/images/immagine3.webp');"></div>
+            
+            <!-- Controlli -->
+            <button class="carousel-control prev-btn" aria-label="Immagine precedente">&#10094;</button>
+            <button class="carousel-control next-btn" aria-label="Immagine successiva">&#10095;</button>
+        </div>
+
+    </section>
+
+   <!-- FOOTER -->
+    <footer class="main-footer">
+        <div class="footer-grid">
+            <!-- Colonna 1: Contatti -->
+            <div class="footer-col">
+                <h4>📍 Sede e Contatti</h4>
+                <p><strong>Indirizzo:</strong><br>Via Alcide de Gasperi 36/c<br>42122 Reggio Emilia (RE)</p>
+                <p><strong>Telefono:</strong><br>0522 333232 | 0522 334179</p>
+                <p><strong>Cellulare:</strong><br>375 7831071 | 375 7831075</p>
+                <p><strong>Email:</strong><br><a href="mailto:info@infortunisticalamperinitre.it" style="color: #0279b5;">info@infortunisticalamperinitre.it</a></p>
+            </div>
+            
+            <!-- Colonna 2: Orari raggruppati -->
+            <div class="footer-col">
+                <h4>🕒 Orari di Apertura</h4>
+                <div class="orari-box">
+                    <p class="struttura-titolo">Studio Infortunistica</p>
+                    <p>Lun - Ven: 09:00 - 12:30 / 14:30 - 19:00</p>
+                    <p>Sab - Dom: CHIUSO</p>
+                </div>
+                <div class="orari-box">
+                    <p class="struttura-titolo">Centro San Luca</p>
+                    <p>Lun - Ven: 08:30 - 12:00 / 14:30 - 19:00</p>
+                    <p>Sab - Dom: CHIUSO</p>
+                </div>
+            </div>
+
+            <!-- Colonna 3: Google Maps -->
+            <div class="footer-col map-col">
+                <h4>🗺️ Dove Siamo</h4>
+                <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2847.669601614838!2d10.60156941552554!3d44.66532437909941!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47801cf906a29e2f%3A0x86bd7179ed487e87!2sVia%20Alcide%20De%20Gasperi%2C%2036c%2C%2042122%20Reggio%20Emilia%20RE!5e0!3m2!1sit!2sit!4v1680000000000!5m2!1sit!2sit" 
+                        width="100%" 
+                        height="220" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>COPYRIGHT &copy; 2026 · TUTTI I DIRITTI RISERVATI · Studio Infortunistica Lamperini Tre · P.IVA: IT01741290355</p>
+            <p><a href="#">Informazioni legali</a> | <a href="#">Privacy</a> | <a href="#">Informativa sui cookie</a></p>
+        </div>
+    </footer>
+
+    <!-- Script del menu principale -->
+    <script src="../assets/js/script.js"></script>
+</body>
+</html>
