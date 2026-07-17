@@ -1,248 +1,258 @@
-<!DOCTYPE html>
-<html lang="it">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Risultati & Record - FIT NESS Powerlifting</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="../assets/css/style.css">
-</head>
-<body>
+    <!DOCTYPE html>
+    <html lang="it">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Risultati & Record - FIT NESS Powerlifting</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        <link rel="stylesheet" href="../assets/css/style.css">
+    </head>
+    <body>
 
-<header class="navbar">
+    <header class="navbar">
     <nav class="nav-container">
-        <div class="nav-container">
-                <a href="../index.html" class="logo-container" style="text-decoration: none; color: inherit;">
-                    <img src="../assets/images/logo/logo_mai_domi_trasparent.png" alt="Logo" class="logo-img">
-                    <div class="logo">MAIDOMI</div>
-                </a>
-            </div>
+        <a href="../index.html" class="logo-container">
+            <img src="../assets/images/logo/logo_mai_domi_trasparent.png" alt="Logo Mai Domi" class="logo-img">
+            <div class="logo">MAI<span>DOMI</span></div>
+        </a>
+
+        <div class="menu-toggle" onclick="toggleMenu()">
+            ☰
+        </div>
         
-        <ul class="nav-links">
+        <ul class="nav-links" id="navLinks">
             <li><a href="../index.html" class="nav-item">Home</a></li>
             <li><a href="chi-siamo.html" class="nav-item">Chi Siamo</a></li>
             <li><a href="prezzi.html" class="nav-item">Prezzi</a></li>
             <li><a href="risultati.html" class="nav-item">Risultati</a></li>
             <li><a href="gallery.html" class="nav-item">Galleria</a></li>
-            <li><a href="https://wa.me/3466177384" class="nav-cta">Prenota Prova</a></li>
+            <li><a href="https://wa.me/3466177384" class="nav-cta" target="_blank" rel="noopener noreferrer">Prenota Prova</a></li>
         </ul>
+        
     </nav>
 </header>
 
-<main style="padding-top: 120px;">
-    <section class="section-header">
-        <div class="subtitle-top">Hall of Fame</div>
-        <h2>I Nostri <span>Atleti</span></h2>
-        <div class="title-underline"></div>
-        <p>I numeri non mentono. Ecco i traguardi raggiunti dai membri della nostra community attraverso la dedizione e la forza.</p>
-    </section>
+    <main style="padding-top: 120px;">
+        <section class="section-header">
+            <div class="subtitle-top">Hall of Fame</div>
+            <h2>I Nostri <span>Atleti</span></h2>
+            <div class="title-underline"></div>
+            <p>I numeri non mentono. Ecco i traguardi raggiunti dai membri della nostra community attraverso la dedizione e la forza.</p>
+        </section>
 
-    <!-- Banner Record della Palestra -->
-    <section class="records-banner">
-        <h4>Gym All-Time Records</h4>
-        <div class="records-container">
-            <div class="record-box">
-                <h4>Squat</h4>
-                <div class="weight">285<small>kg</small></div>
-            </div>
-            <div class="record-box">
-                <h4>Bench</h4>
-                <div class="weight">190<small>kg</small></div>
-            </div>
-            <div class="record-box">
-                <h4>Deadlift</h4>
-                <div class="weight">320<small>kg</small></div>
-            </div>
-        </div>
-    </section>
-    <h2>Risultati <span>Powerlifting</span></h2>
-    <section class="results-grid">
-        <!-- Atleta 1 -->
-        <div class="result-card card">
-            <div class="result-image-box">
-                <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=800&q=80" alt="Atleta">
-                <div class="pr-badge">
-                    <small>Total PR</small>
-                    640 KG
+        <!-- Banner Record della Palestra -->
+        <section class="records-banner">
+            <h4>Gym All-Time Records</h4>
+            <div class="records-container">
+                <div class="record-box">
+                    <h4>Squat</h4>
+                    <div class="weight">336<small>kg</small></div>
+                </div>
+                <div class="record-box">
+                    <h4>Bench</h4>
+                    <div class="weight">150<small>kg</small></div>
+                </div>
+                <div class="record-box">
+                    <h4>Deadlift</h4>
+                    <div class="weight">340<small>kg</small></div>
                 </div>
             </div>
-            <div class="result-content">
-                <h3>Andrea V.</h3>
-                <p>"In 12 mesi ho aggiunto 100kg al mio totale. La programmazione è tutto."</p>
-                <div class="lifts-stats">
-                    <div class="stat-item"><label>SQ</label><span>220kg</span></div>
-                    <div class="stat-item"><label>BP</label><span>140kg</span></div>
-                    <div class="stat-item"><label>DL</label><span>280kg</span></div>
-                </div>
-            </div>
-        </div>
+        </section>
+        <h2>Risultati <span>Powerlifting</span></h2>
+        <section class="results-grid">
 
-        <!-- Atleta 2 -->
-        <div class="result-card card">
-            <div class="result-image-box">
-                <img src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?auto=format&fit=crop&w=800&q=80" alt="Atleta">
-                <div class="pr-badge">
-                    <small>Total PR</small>
-                    415 KG
+            <!-- Sara Raggi -->
+            <div class="result-card card">
+                <div class="result-image-box">
+                    <img src="../assets/images/sara_raggi.jpeg" alt="Atleta">
+                    <div class="pr-badge">
+                        <small>Total PR</small>
+                        xKG
+                    </div>
+                </div>
+                <div class="result-content">
+                    <h3>Sara Raggi</h3>
+                    <p>Western European Champion 2023</p>
+                    <div class="lifts-stats">
+                        <div class="stat-item"><label>SQ</label><span>xkg</span></div>
+                        <div class="stat-item"><label>BP</label><span>xkg</span></div>
+                        <div class="stat-item"><label>DL</label><span>xkg</span></div>
+                    </div>
                 </div>
             </div>
-            <div class="result-content">
-                <h3>Giulia R.</h3>
-                <p>"Da zero al mio primo podio nazionale. Qui ho trovato la tecnica perfetta."</p>
-                <div class="lifts-stats">
-                    <div class="stat-item"><label>SQ</label><span>145kg</span></div>
-                    <div class="stat-item"><label>BP</label><span>85kg</span></div>
-                    <div class="stat-item"><label>DL</label><span>185kg</span></div>
-                </div>
-            </div>
-        </div>
 
-        <!-- Atleta 3 -->
-        <div class="result-card card">
-            <div class="result-image-box">
-                <img src="https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?auto=format&fit=crop&w=800&q=80" alt="Atleta">
-                <div class="pr-badge">
-                    <small>Total PR</small>
-                    725 KG
+            <!-- Atleta 1 -->
+            <div class="result-card card">
+                <div class="result-image-box">
+                    <img src="../assets/images/daniele_miggiano.jpeg" alt="Atleta">
+                    <div class="pr-badge">
+                        <small>Total PR</small>
+                        336 KG
+                    </div>
+                </div>
+                <div class="result-content">
+                    <h3>Daniele Miggiano</h3>
+                    <p>336 kg di squat, record italiano 2025</p>
+                    <div class="lifts-stats">
+                        <div class="stat-item"><label>SQ</label><span>336kg</span></div>
+                        <div class="stat-item"><label>BP</label><span>xkg</span></div>
+                        <div class="stat-item"><label>DL</label><span>xkg</span></div>
+                    </div>
                 </div>
             </div>
-            <div class="result-content">
-                <h3>Matteo L.</h3>
-                <p>"Cercavo un ambiente dove spingere oltre i miei limiti. Obiettivo raggiunto."</p>
-                <div class="lifts-stats">
-                    <div class="stat-item"><label>SQ</label><span>250kg</span></div>
-                    <div class="stat-item"><label>BP</label><span>175kg</span></div>
-                    <div class="stat-item"><label>DL</label><span>300kg</span></div>
-                </div>
-            </div>
-        </div>
-    </section>
 
 
-<h2>Risultati <span>Estetici</span></h2>
- <section class="results-grid">
-        <!-- Atleta 1 -->
-        <div class="result-card card">
-            <div class="result-image-box">
-                <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=800&q=80" alt="Atleta">
-                <div class="pr-badge">
-                    <small>Total PR</small>
-                    640 KG
+        <!-- Elia Venturelli -->
+            <div class="result-card card">
+                <div class="result-image-box">
+                    <img src="../assets/images/elia_venturelli_dopo.jpeg" alt="Atleta">
+                    <div class="pr-badge">
+                        <small>Total PR</small>
+                        340KG
+                    </div>
+                </div>
+                <div class="result-content">
+                    <h3>Elia Venturelli</h3>
+                    <p>Western European Champion 2023</p>
+                    <div class="lifts-stats">
+                        <div class="stat-item"><label>SQ</label><span>xkg</span></div>
+                        <div class="stat-item"><label>BP</label><span>xkg</span></div>
+                        <div class="stat-item"><label>DL</label><span>340kg</span></div>
+                    </div>
                 </div>
             </div>
-            <div class="result-content">
-                <h3>Andrea V.</h3>
-                <p>"In 12 mesi ho aggiunto 100kg al mio totale. La programmazione è tutto."</p>
-                <div class="lifts-stats">
-                    <div class="stat-item"><label>SQ</label><span>220kg</span></div>
-                    <div class="stat-item"><label>BP</label><span>140kg</span></div>
-                    <div class="stat-item"><label>DL</label><span>280kg</span></div>
-                </div>
-            </div>
-        </div>
 
-        <!-- Atleta 2 -->
-        <div class="result-card card">
-            <div class="result-image-box">
-                <img src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?auto=format&fit=crop&w=800&q=80" alt="Atleta">
-                <div class="pr-badge">
-                    <small>Total PR</small>
-                    415 KG
+            <!-- Francesco Musi -->
+            <div class="result-card card">
+                <div class="result-image-box">
+                    <img src="../assets/images/francesco_musi_dopo.jpeg" alt="Atleta">
+                    <div class="pr-badge">
+                        <small>Total PR</small>
+                        400 KG
+                    </div>
                 </div>
-            </div>
-            <div class="result-content">
-                <h3>Giulia R.</h3>
-                <p>"Da zero al mio primo podio nazionale. Qui ho trovato la tecnica perfetta."</p>
-                <div class="lifts-stats">
-                    <div class="stat-item"><label>SQ</label><span>145kg</span></div>
-                    <div class="stat-item"><label>BP</label><span>85kg</span></div>
-                    <div class="stat-item"><label>DL</label><span>185kg</span></div>
+                <div class="result-content">
+                    <h3>Francesco Musi</h3>
+                    <p>DA FARE</p>
+                    <div class="lifts-stats">
+                        <div class="stat-item"><label>SQ</label><span>200kg</span></div>
+                        <div class="stat-item"><label>BP</label><span>xkg</span></div>
+                        <div class="stat-item"><label>DL</label><span>200kg</span></div>
+                    </div>
                 </div>
             </div>
         </div>
+            <!-- Silvia Mazzaraco -->
+            <div class="result-card card">
+                <div class="result-image-box">
+                    <img src="../assets/images/silvia_mazzaraco_dopo.jpeg" alt="Atleta">
+                    <div class="pr-badge">
+                        <small>Total PR</small>
+                        151 KG
+                    </div>
+                </div>
+                <div class="result-content">
+                    <h3>Silvia Mazzaraco </h3>
+                    <p>DA FARE</p>
+                    <div class="lifts-stats">
+                        <div class="stat-item"><label>SQ</label><span>151kg</span></div>
+                        <div class="stat-item"><label>BP</label><span>xkg</span></div>
+                        <div class="stat-item"><label>DL</label><span>xkg</span></div>
+                    </div>
+                </div>
+            </div>
 
-        <!-- Atleta 3 -->
-        <div class="result-card card">
-            <div class="result-image-box">
-                <img src="https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?auto=format&fit=crop&w=800&q=80" alt="Atleta">
-                <div class="pr-badge">
-                    <small>Total PR</small>
-                    725 KG
-                </div>
-            </div>
-            <div class="result-content">
-                <h3>Matteo L.</h3>
-                <p>"Cercavo un ambiente dove spingere oltre i miei limiti. Obiettivo raggiunto."</p>
-                <div class="lifts-stats">
-                    <div class="stat-item"><label>SQ</label><span>250kg</span></div>
-                    <div class="stat-item"><label>BP</label><span>175kg</span></div>
-                    <div class="stat-item"><label>DL</label><span>300kg</span></div>
-                </div>
-            </div>
         </div>
-    </section>
+        </section>
 
-</main>
 
-<footer class="main-footer" id="contatti">
-        <div class="footer-container">
-            <!-- Prima Colonna: CONTATTI + SOCIAL -->
-            <div class="footer-column">
-                <h4>CONTATTI</h4>
-                <ul class="contact-info">
-                    <li><i class="fas fa-map-marker-alt"></i> Via B. Gigli 7, 42124 Reggio Emilia</li>
-                    <li><i class="fas fa-phone"></i> +39 347 123 4567</li>
-                    <li><i class="fas fa-envelope"></i> asdmaidomi@gmail.com</li>
-                </ul>
+        <section class="section-header" style="padding-top: 40px; padding-bottom: 20px;">
+            <h2>I Nostri <span>Atleti</span></h2>
+        </section>
 
-                <div class="social-icons">
-                    <a href="https://www.facebook.com/maidomiteam/" target="_blank"><i
-                            class="fab fa-facebook-f"></i></a>
-                    <a href="https://www.instagram.com/mai_domi_asd/" target="_blank"><i
-                            class="fab fa-instagram"></i></a>
-                    <a href="https://www.youtube.com/@MaiDomiTalk" target="_blank"><i class="fab fa-youtube"></i></a>
+        <section class="gallery-scrollable-wrapper">
+            <button class="scroll-btn left-btn" onclick="scrollGallery(-1)">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+        
+            <div class="scroll-container" id="galleryScroll">
+                <img src="../assets/images/result_gallery2.jpg" alt="Gym Detail">
+                <img src="../assets/images/result_gallery3.jpg" alt="Gym Detail">
+                <img src="../assets/images/result_gallery4.jpg" alt="Gym Detail">
+                <img src="../assets/images/result_gallery5.jpg" alt="Gym Detail">
+                <img src="../assets/images/result_gallery6.jpg" alt="Gym Detail">
+                <img src="../assets/images/result_gallery9.jpg" alt="Gym Detail">
+            </div>
+
+            <button class="scroll-btn right-btn" onclick="scrollGallery(1)">
+               <i class="fas fa-chevron-right"></i>
+            </button>
+        </section>
+    </main>
+    <br><br><br>
+
+    <footer class="main-footer" id="contatti">
+            <div class="footer-container">
+                <!-- Prima Colonna: CONTATTI + SOCIAL -->
+                <div class="footer-column">
+                    <h4>CONTATTI</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> Via B. Gigli 7, 42124 Reggio Emilia</li>
+                        <li><i class="fas fa-phone"></i> +39 347 123 4567</li>
+                        <li><i class="fas fa-envelope"></i> asdmaidomi@gmail.com</li>
+                    </ul>
+
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/maidomiteam/" target="_blank"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/mai_domi_asd/" target="_blank"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/@MaiDomiTalk" target="_blank"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <!-- Seconda Colonna: ORARI RAGGRUPPATI -->
+                <div class="footer-column">
+                    <h4>ORARI</h4>
+                    <ul class="opening-hours-list">
+                        <li>
+                            <b class="days">Lun - Ven</b>
+                            <span class="time">10:00 - 21:00</span>
+                        </li>
+                        <li>
+                            <b class="days">Sab</b>
+                            <span class="time">9:30 - 12:00</span>
+                        </li>
+                        <li>
+                            <b class="days">Dom</b>
+                            <span class="time">Chiuso</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Terza Colonna: DOVE SIAMO -->
+                <div class="footer-column">
+                    <h4>DOVE SIAMO</h4>
+                    <div class="map-container">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2836.435712123!2d10.6457187!3d44.6865668!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477f02a466103327%3A0x6b3b55577e384581!2sVia%20Beniamino%20Gigli%2C%207%2C%2042124%20Reggio%20Emilia%20RE!5e0!3m2!1sit!2sit!4v1715000000000"
+                            width="100%" height="150"
+                            style="border:0; border-radius: 8px; filter: grayscale(1) invert(1) opacity(0.7);"
+                            allowfullscreen="" loading="lazy">
+                        </iframe>
+                    </div>
                 </div>
             </div>
 
-            <!-- Seconda Colonna: ORARI RAGGRUPPATI -->
-            <div class="footer-column">
-                <h4>ORARI</h4>
-                <ul class="opening-hours-list">
-                    <li>
-                        <b class="days">Lun - Ven</b>
-                        <span class="time">10:00 - 21:00</span>
-                    </li>
-                    <li>
-                        <b class="days">Sab</b>
-                        <span class="time">9:30 - 12:00</span>
-                    </li>
-                    <li>
-                        <b class="days">Dom</b>
-                        <span class="time">Chiuso</span>
-                    </li>
-                </ul>
+            <div class="footer-bottom">
+                <p>
+                    © 2026 A.S.D. Mai Domi | P.IVA //DA INSERIRE | 
+                    <a href="../assets/images/Informativa_Privacy_ASD_MAI_DOMI.pdf" target="_blank" rel="noopener noreferrer" class="footer-link">Privacy Policy</a> | 
+                    <a href="#" class="footer-link">Cookie Policy</a>
+                </p>
             </div>
+        </footer>
 
-            <!-- Terza Colonna: DOVE SIAMO -->
-            <div class="footer-column">
-                <h4>DOVE SIAMO</h4>
-                <div class="map-container">
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2836.435712123!2d10.6457187!3d44.6865668!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477f02a466103327%3A0x6b3b55577e384581!2sVia%20Beniamino%20Gigli%2C%207%2C%2042124%20Reggio%20Emilia%20RE!5e0!3m2!1sit!2sit!4v1715000000000"
-                        width="100%" height="150"
-                        style="border:0; border-radius: 8px; filter: grayscale(1) invert(1) opacity(0.7);"
-                        allowfullscreen="" loading="lazy">
-                    </iframe>
-                </div>
-            </div>
-        </div>
-
-        <div class="footer-bottom">
-            <p>© 2026 A.S.D. Mai Domi | P.IVA //DA INSERIRE | <a href="#" class="footer-link">Privacy Policy</a> | <a
-                    href="#" class="footer-link">Cookie Policy</a></p>
-        </div>
-    </footer>
-
-<script src="assets/js/script.js"></script>
-</body>
-</html>
+    <script src="../assets/js/script.js"></script>
+    </body>
+    </html>

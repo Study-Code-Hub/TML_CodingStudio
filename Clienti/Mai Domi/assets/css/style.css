@@ -867,3 +867,141 @@ a.card:hover .card-link {
 .btn-rifiuta:hover {
     background-color: #333;
 }
+/* ==========================================================================
+   AGGIUNTA: SWITCH FOTO AL CLICK (Dentro .result-image-box)
+   ========================================================================== */
+
+.image-slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.slider-wrapper {
+    display: grid;
+    width: 100%;
+    height: 100%;
+}
+
+.slide {
+    grid-area: 1 / 1; 
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.4s ease-in-out;
+}
+
+.slide-back {
+    opacity: 0; 
+    z-index: 1;
+}
+
+.slide-front {
+    opacity: 0.8;
+    z-index: 2;
+}
+.image-slider.flipped .slide-front {
+    opacity: 0; /* Nasconde la prima */
+}
+
+.image-slider.flipped .slide-back {
+    opacity: 0.8; /* Mostra la seconda */
+}
+
+.pr-badge {
+    z-index: 10 !important; 
+}
+
+/* ==========================================================================
+   9. RESPONSIVE DESIGN GLOBALE (AGGIUNTE PER DISPOSITIVI MOBILI)
+   ========================================================================== */
+
+/* Nascondiamo di base il pulsante menu sui PC (Verrà mostrato su mobile) */
+.menu-toggle {
+    display: none;
+    color: white;
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    /* 1. SEZIONI E PADDING: Riduciamo i margini laterali (dal 10% al 5%) per recuperare spazio */
+    .section-header { padding: 90px 5% 30px; }
+    .services-container, .team-section, .pricing-section, .results-grid, .gallery-static, .gallery-scrollable-wrapper {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    /* 2. NAVBAR E MENU A TENDINA: Impostiamo il menu a comparsa */
+    .menu-toggle {
+        display: block; /* Mostra l'icona hamburger */
+    }
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.98);
+        flex-direction: column; /* Impila i link verticalmente */
+        padding: 20px 0 30px 0;
+        border-bottom: 2px solid #2ecc71;
+        /* Nascosto di default con animazione */
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-20px);
+        transition: all 0.3s ease;
+    }
+    .nav-links.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+    .nav-item { margin: 15px 0; font-size: 1.2rem; }
+    .nav-cta { margin: 15px 0 0 0; }
+
+    /* 3. TEAM SECTION (CHI SIAMO): Impiliamo foto e testo invece di affiancarli */
+    .team-member, .team-member:nth-child(even) {
+        flex-direction: column !important; /* Forza la disposizione in verticale annullando il row-reverse */
+        text-align: center;
+        gap: 25px;
+        margin-bottom: 60px;
+    }
+    .member-img-container {
+        width: 200px; /* Rimpicciolisce leggermente la foto */
+        height: 200px;
+    }
+
+    /* 4. RISULTATI E CARD: Evitiamo che escano dallo schermo su telefoni piccoli */
+    .results-grid {
+        /* Annulla il limite minimo di 350px che spaccherebbe i telefoni stretti */
+        grid-template-columns: 1fr; 
+    }
+    
+    /* 5. LISTINO PREZZI: Rimuoviamo lo zoom alla card in evidenza per evitare overflow */
+    .price-card.featured {
+        transform: none; 
+        border: 2px solid #2ecc71;
+    }
+
+    /* 6. HALL OF FAME: Impiliamo i record */
+    .records-container {
+        flex-direction: column;
+        gap: 40px;
+    }
+    .record-box .weight {
+        font-size: 3rem; /* Testo leggermente più piccolo per non debordare */
+    }
+
+    /* 7. FOOTER: Centriamo tutto e mettiamo in colonna */
+    .footer-container {
+        grid-template-columns: 1fr; 
+        text-align: center; 
+    }
+    .social-icons {
+        justify-content: center; /* Centra orizzontalmente le icone social */
+    }
+}

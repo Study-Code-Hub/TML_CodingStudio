@@ -11,21 +11,24 @@
 
 <header class="navbar">
     <nav class="nav-container">
-        <div class="nav-container">
-                <a href="../index.html" class="logo-container" style="text-decoration: none; color: inherit;">
-                    <img src="../assets/images/logo/logo_mai_domi_trasparent.png" alt="Logo" class="logo-img">
-                    <div class="logo">MAIDOMI</div>
-                </a>
-            </div>
+        <a href="../index.html" class="logo-container">
+            <img src="../assets/images/logo/logo_mai_domi_trasparent.png" alt="Logo Mai Domi" class="logo-img">
+            <div class="logo">MAI<span>DOMI</span></div>
+        </a>
+
+        <div class="menu-toggle" onclick="toggleMenu()">
+            ☰
+        </div>
         
-        <ul class="nav-links">
+        <ul class="nav-links" id="navLinks">
             <li><a href="../index.html" class="nav-item">Home</a></li>
             <li><a href="chi-siamo.html" class="nav-item">Chi Siamo</a></li>
             <li><a href="prezzi.html" class="nav-item">Prezzi</a></li>
             <li><a href="risultati.html" class="nav-item">Risultati</a></li>
             <li><a href="gallery.html" class="nav-item">Galleria</a></li>
-            <li><a href="https://wa.me/393466177384" class="nav-cta">Prenota Prova</a></li>
+            <li><a href="https://wa.me/393466177384" class="nav-cta" target="_blank" rel="noopener noreferrer">Prenota Prova</a></li>
         </ul>
+        
     </nav>
 </header>
 
@@ -277,8 +280,11 @@
         </div>
 
         <div class="footer-bottom">
-            <p>© 2026 A.S.D. Mai Domi | P. IVA 02973920354<a href="#" class="footer-link">Privacy Policy</a> | <a
-                    href="#" class="footer-link">Cookie Policy</a></p>
+            <p>
+                © 2026 A.S.D. Mai Domi | P.IVA //DA INSERIRE | 
+                <a href="../assets/images/Informativa_Privacy_ASD_MAI_DOMI.pdf" target="_blank" rel="noopener noreferrer" class="footer-link">Privacy Policy</a> | 
+                <a href="#" class="footer-link">Cookie Policy</a>
+            </p>
         </div>
     </footer>
 
