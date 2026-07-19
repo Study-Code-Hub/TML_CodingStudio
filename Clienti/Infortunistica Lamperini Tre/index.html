@@ -105,6 +105,20 @@
         </div>
     </section>
 
+<div class="map-container">
+    <!-- 1. Questo è il box che si vede se i cookie NON sono accettati -->
+    <div id="cookie-placeholder-map" style="background: #222; height: 300px; display: flex; align-items: center; justify-content: center; text-align: center; border: 1px dashed #555; border-radius: 10px; padding: 20px;">
+        <div>
+            <p style="color: #ccc; margin-bottom: 15px;">Devi accettare i cookie per visualizzare la mappa interattiva.</p>
+            <button onclick="mostraBannerCookie()" style="background: #2ecc71; border: none; padding: 10px 20px; color: white; border-radius: 5px; cursor: pointer; font-weight: bold;">Gestisci Preferenze</button>
+        </div>
+    </div>
+
+    <!-- 2. Questo è l'iframe della mappa (Inizialmente vuoto e nascosto) -->
+    <!-- ATTENZIONE: Lascia l'attributo src="" vuoto! Lo riempiremo con Javascript -->
+    <iframe id="googleMap" src="" style="display: none; width: 100%; height: 300px; border: 0;" allowfullscreen="" loading="lazy"></iframe>
+</div>
+
     <!-- FOOTER -->
 <!-- FOOTER -->
     <footer class="main-footer">
@@ -158,5 +172,16 @@
 
     <!-- Collegamento al file JavaScript esterno -->
     <script src="assets/js/script.js"></script>
+
+    <!-- BANNER COOKIE -->
+<div class="cookie-banner" id="cookieBanner">
+    <div class="cookie-content">
+        <p>Utilizziamo i cookie per mostrarti la mappa interattiva e gestire i servizi di contatto (WhatsApp). Accetti l'utilizzo di questi servizi di terze parti?</p>
+    </div>
+    <div class="cookie-buttons">
+        <button class="btn-accetta" onclick="accettaCookie()">Accetta</button>
+        <button class="btn-rifiuta" onclick="rifiutaCookie()">Rifiuta</button>
+    </div>
+</div>
 </body>
 </html>

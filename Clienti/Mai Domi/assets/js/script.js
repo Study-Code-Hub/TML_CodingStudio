@@ -91,46 +91,55 @@ document.addEventListener("DOMContentLoaded", function() {
     const cookieBanner = document.getElementById("cookie-banner");
     const acceptBtn = document.getElementById("accept-cookies");
     const rejectBtn = document.getElementById("reject-cookies");
-    
+    const mapWrapper = document.getElementById("map-wrapper");
     const mapIframe = document.getElementById("google-map");
     const cookieWarning = document.getElementById("cookie-warning");
-    const mapWrapper = document.getElementById("map-wrapper");
 
-    // Controlla se l'utente ha già fatto una scelta salvata nel browser
+    // 1. Controlla la preferenza salvata
     const userConsent = localStorage.getItem("cookieConsent");
 
+    // 2. COMPORTAMENTO AL CARICAMENTO DELLA PAGINA
     if (userConsent === "accepted") {
-        // Se ha già accettato, carica la mappa e tieni nascosto il banner
+        // Ha già accettato: nascondi banner, mostra mappa
+        if (cookieBanner) cookieBanner.style.display = "none";
+        if (mapWrapper) mapWrapper.style.display = "block";
         loadGoogleMap();
     } else if (userConsent === "rejected") {
-        // Se ha rifiutato, la mappa resta bloccata
-        cookieBanner.style.display = "none";
+        // Ha già rifiutato: nascondi banner, nascondi l'intero blocco mappa
+        if (cookieBanner) cookieBanner.style.display = "none";
+        if (mapWrapper) mapWrapper.style.display = "none"; 
     } else {
-        // Se è la prima volta, mostra il banner
-        cookieBanner.style.display = "flex";
+        // Prima visita: mostra banner, mostra placeholder grigio (ma non carica Google)
+        if (cookieBanner) cookieBanner.style.display = "flex";
+        if (mapWrapper) mapWrapper.style.display = "block";
     }
 
-    // Cosa succede se clicca "Accetta"
-    acceptBtn.addEventListener("click", function() {
-        localStorage.setItem("cookieConsent", "accepted"); // Salva la scelta
-        cookieBanner.style.display = "none"; // Nascondi il banner
-        loadGoogleMap(); // Mostra la mappa
-    });
+    // 3. AZIONE: CLICK SU ACCETTA
+    if (acceptBtn) {
+        acceptBtn.addEventListener("click", function() {
+            localStorage.setItem("cookieConsent", "accepted");
+            if (cookieBanner) cookieBanner.style.display = "none";
+            if (mapWrapper) mapWrapper.style.display = "block";
+            loadGoogleMap(); // Carica fisicamente Google Maps
+        });
+    }
 
-    // Cosa succede se clicca "Rifiuta"
-    rejectBtn.addEventListener("click", function() {
-        localStorage.setItem("cookieConsent", "rejected"); // Salva la scelta
-        cookieBanner.style.display = "none"; // Nascondi il banner (la mappa resta bloccata)
-    });
+    // 4. AZIONE: CLICK SU RIFIUTA
+    if (rejectBtn) {
+        rejectBtn.addEventListener("click", function() {
+            localStorage.setItem("cookieConsent", "rejected");
+            if (cookieBanner) cookieBanner.style.display = "none";
+            if (mapWrapper) mapWrapper.style.display = "none"; // Fa sparire tutto all'istante
+        });
+    }
 
-    // Funzione per caricare la mappa
+    // 5. FUNZIONE DI CARICAMENTO MAPPA
     function loadGoogleMap() {
-        if(mapIframe) {
-            // Prende il link da data-src e lo mette in src
-            mapIframe.src = mapIframe.getAttribute("data-src");
-            mapIframe.style.display = "block"; // Mostra la mappa
-            if(cookieWarning) cookieWarning.style.display = "none"; // Nasconde il testo di avviso
-            if(mapWrapper) mapWrapper.style.padding = "0"; // Rimuove il padding del contenitore temporaneo
+        if (mapIframe && mapIframe.getAttribute("data-src")) {
+            mapIframe.src = mapIframe.getAttribute("data-src"); // Inserisce il link reale
+            mapIframe.style.display = "block";
+            if (cookieWarning) cookieWarning.style.display = "none"; // Togle la scritta di avviso
+            if (mapWrapper) mapWrapper.style.padding = "0"; // Toglie i bordi del placeholder
         }
     }
 });
