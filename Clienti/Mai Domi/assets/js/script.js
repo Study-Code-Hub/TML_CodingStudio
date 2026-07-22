@@ -95,26 +95,20 @@ document.addEventListener("DOMContentLoaded", function() {
     const mapIframe = document.getElementById("google-map");
     const cookieWarning = document.getElementById("cookie-warning");
 
-    // 1. Controlla la preferenza salvata
     const userConsent = localStorage.getItem("cookieConsent");
 
-    // 2. COMPORTAMENTO AL CARICAMENTO DELLA PAGINA
     if (userConsent === "accepted") {
-        // Ha già accettato: nascondi banner, mostra mappa
         if (cookieBanner) cookieBanner.style.display = "none";
         if (mapWrapper) mapWrapper.style.display = "block";
         loadGoogleMap();
     } else if (userConsent === "rejected") {
-        // Ha già rifiutato: nascondi banner, nascondi l'intero blocco mappa
         if (cookieBanner) cookieBanner.style.display = "none";
         if (mapWrapper) mapWrapper.style.display = "none"; 
     } else {
-        // Prima visita: mostra banner, mostra placeholder grigio (ma non carica Google)
         if (cookieBanner) cookieBanner.style.display = "flex";
         if (mapWrapper) mapWrapper.style.display = "block";
     }
 
-    // 3. AZIONE: CLICK SU ACCETTA
     if (acceptBtn) {
         acceptBtn.addEventListener("click", function() {
             localStorage.setItem("cookieConsent", "accepted");
@@ -124,22 +118,20 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // 4. AZIONE: CLICK SU RIFIUTA
     if (rejectBtn) {
         rejectBtn.addEventListener("click", function() {
             localStorage.setItem("cookieConsent", "rejected");
             if (cookieBanner) cookieBanner.style.display = "none";
-            if (mapWrapper) mapWrapper.style.display = "none"; // Fa sparire tutto all'istante
+            if (mapWrapper) mapWrapper.style.display = "none";
         });
     }
 
-    // 5. FUNZIONE DI CARICAMENTO MAPPA
     function loadGoogleMap() {
         if (mapIframe && mapIframe.getAttribute("data-src")) {
-            mapIframe.src = mapIframe.getAttribute("data-src"); // Inserisce il link reale
+            mapIframe.src = mapIframe.getAttribute("data-src");
             mapIframe.style.display = "block";
-            if (cookieWarning) cookieWarning.style.display = "none"; // Togle la scritta di avviso
-            if (mapWrapper) mapWrapper.style.padding = "0"; // Toglie i bordi del placeholder
+            if (cookieWarning) cookieWarning.style.display = "none";
+            if (mapWrapper) mapWrapper.style.padding = "0";
         }
     }
 });

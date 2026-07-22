@@ -581,6 +581,14 @@ b.days {
     border-top: 1px dashed #444;
 }
 
+.lifts-stats-single {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px dashed #444;
+}
+
 .stat-item { text-align: center; }
 .stat-item label { display: block; color: #888; font-size: 0.8rem; text-transform: uppercase; }
 .stat-item span { font-weight: bold; font-size: 1.2rem; }
