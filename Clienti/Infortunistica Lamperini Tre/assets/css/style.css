@@ -903,7 +903,7 @@ nav a.nav-btn:hover {
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    min-height: 400px;
+    min-height: 500px;
 }
 
 /* ANIMAZIONE E OVERLAY (invariati) */
