@@ -1,26 +1,6 @@
 /**
- * SCRIPT UNICO E PULITO - INFORTUNISTICA LAMPERINI TRE
+ * INFORTUNISTICA LAMPERINI TRE
  */
-document.addEventListener('DOMContentLoaded', () => {
-    
-    // 1. GESTIONE MENU
-    const menuToggle = document.getElementById('menuToggle');
-    const mainNav = document.getElementById('mainNav');
-
-    if (menuToggle && mainNav) {
-        menuToggle.addEventListener('click', () => {
-            menuToggle.classList.toggle('open');
-            mainNav.classList.toggle('open');
-        });
-        
-        mainNav.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                menuToggle.classList.remove('open');
-                mainNav.classList.remove('open');
-            });
-        });
-    }
-
     // 2. GESTIONE CAROSELLO
     const slides = document.querySelectorAll('.carousel-item');
     if (slides.length > 0) {
@@ -38,15 +18,9 @@ document.addEventListener('DOMContentLoaded', () => {
         if (nextBtn) nextBtn.addEventListener('click', () => showSlide(++currentSlide));
         if (prevBtn) prevBtn.addEventListener('click', () => showSlide(--currentSlide));
     }
-});
 
-/**
- * SCRIPT UNICO - INFORTUNISTICA LAMPERINI TRE
- * Menu, carosello e gestione consenso cookie / servizi di terze parti.
- */
+    
 
-/* URL della mappa: sta SOLO qui, mai nell'HTML.
-   Se cambi sede, modifichi questa riga e basta. */
 const MAPPA_URL = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2847.669601614838!2d10.60156941552554!3d44.66532437909941!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47801cf906a29e2f%3A0x86bd7179ed487e87!2sVia%20Alcide%20De%20Gasperi%2C%2036c%2C%2042122%20Reggio%20Emilia%20RE!5e0!3m2!1sit!2sit!4v1680000000000!5m2!1sit!2sit";
 
 const COOKIE_KEY = 'consensoCookie_L3';
@@ -153,8 +127,6 @@ function nascondiBannerCookie() {
     if (banner) banner.classList.remove('is-visible');
 }
 
-/* Carica le mappe: l'iframe riceve l'src solo ora.
-   Finché non si accetta, Google non viene mai contattato. */
 function sbloccaServizi() {
     document.querySelectorAll('.map-consent').forEach(box => {
         const iframe = box.querySelector('.map-frame');

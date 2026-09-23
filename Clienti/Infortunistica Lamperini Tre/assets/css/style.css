@@ -70,9 +70,9 @@ a {
    ========================================================================== */
 
 header {
-    background-color: rgba(2, 121, 181, 0.92); /* Azzurro con trasparenza per effetto vetro */
-    backdrop-filter: blur(10px); /* Effetto vetro sfocato (Glassmorphism) */
-    -webkit-backdrop-filter: blur(10px); /* Per Safari */
+    background-color: rgba(2, 121, 181, 0.92);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     color: var(--bg-white);
     padding: 15px 5%;
     display: flex;
@@ -81,7 +81,7 @@ header {
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.15); /* Ombra più morbida e ampia */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -115,11 +115,10 @@ nav a {
     color: var(--bg-white);
     font-weight: 500;
     padding: 8px 0;
-    position: relative; /* Necessario per l'animazione della linea */
+    position: relative;
     font-size: 1.05rem;
 }
 
-/* Animazione linea sotto i link normali */
 nav a:not(.nav-btn)::after {
     content: '';
     position: absolute;
@@ -139,10 +138,9 @@ nav a.active:not(.nav-btn)::after {
 
 nav a:not(.nav-btn):hover {
     color: #ffffff;
-    text-shadow: 0 0 8px rgba(255,255,255,0.3); /* Leggero bagliore */
+    text-shadow: 0 0 8px rgba(255,255,255,0.3);
 }
 
-/* Stile per il pulsante "Contatti" nel menù */
 nav a.nav-btn {
     background-color: #ffcc00;
     color: var(--primary-dark);
@@ -164,8 +162,8 @@ nav a.nav-btn:hover {
 .menu-toggle {
     display: none;
     flex-direction: column;
-    justify-content: center; /* Centrato verticalmente */
-    gap: 6px;                /* Spazio tra le linee */
+    justify-content: center; 
+    gap: 6px;
     width: 30px;
     height: 20px;
     background: transparent;
@@ -179,26 +177,22 @@ nav a.nav-btn:hover {
     display: block;
     width: 100%;
     height: 3px;
-    background-color: #ffffff; /* Assicurati sia bianco */
+    background-color: #ffffff;
     border-radius: 3px;
-    transition: all 0.3s ease-in-out; /* Animazione fluida */
+    transition: all 0.3s ease-in-out;
     transform-origin: center;
 }
 
-/* Animazione Hamburger -> X */
 .menu-toggle.open span:nth-child(1) {
     transform: translateY(9px) rotate(45deg);
 }
 .menu-toggle.open span:nth-child(2) {
-    opacity: 0; /* La linea centrale scompare */
+    opacity: 0;
 }
 .menu-toggle.open span:nth-child(3) {
     transform: translateY(-9px) rotate(-45deg);
 }
 
-/* ==========================================================================
-   HERO SECTION CON SLIDER E BOX IN VETRO
-   ========================================================================== */
 .hero-slider {
     position: relative;
     height: 85vh;
@@ -233,7 +227,6 @@ nav a.nav-btn:hover {
     100% { opacity: 0; }
 }
 
-/* Sfumatura che parte dall'azzurro del sito e sfuma verso destra */
 .slider-gradient {
     position: absolute;
     top: 0;
@@ -244,7 +237,6 @@ nav a.nav-btn:hover {
     z-index: 2;
 }
 
-/* Contenitore per allineare il box a sinistra */
 .hero-content {
     position: relative;
     z-index: 3;
@@ -253,7 +245,7 @@ nav a.nav-btn:hover {
     margin: 0 auto;
     padding: 0 5%;
 }
-/* Box "Glassmorphism" per il testo */
+
 .hero-text-box {
     background: rgba(255, 255, 255, 0.08);
     backdrop-filter: blur(12px);
@@ -265,7 +257,6 @@ nav a.nav-btn:hover {
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
 }
 
-/* Badge del titolo H2 */
 .hero-text-box h2 {
     color: #ffcc00;
     font-size: 1rem;
@@ -308,29 +299,26 @@ nav a.nav-btn:hover {
     margin-top: 10px;
 }
 
-/* Stile Base Bottoni */
 .btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 10px; /* Spazio tra testo e freccia */
+    gap: 10px;
     padding: 16px 35px;
-    border-radius: 50px; /* Forma a pillola molto moderna */
+    border-radius: 50px;
     font-weight: 700;
     font-size: 1.05rem;
     letter-spacing: 0.5px;
     text-transform: uppercase;
     text-decoration: none;
-    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* Animazione fluidissima */
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
     cursor: pointer;
 }
 
-/* Animazione spinta verso l'alto al passaggio del mouse */
 .btn:hover {
     transform: translateY(-5px);
 }
 
-/* Animazione della piccola freccia */
 .btn-icon {
     transition: transform 0.3s ease;
 }
@@ -338,7 +326,6 @@ nav a.nav-btn:hover {
     transform: translateX(6px);
 }
 
-/* Bottone Principale (Rosso) */
 .btn-primary {
     background: linear-gradient(135deg, #ffffff 0%, var(--primary-color) 100%);
     color: var(--bg-white);
@@ -351,7 +338,6 @@ nav a.nav-btn:hover {
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); 
 }
 
-/* Bottone Secondario (Trasparente "Glass") */
 .btn-outline {
     background: linear-gradient(135deg, #ffffff 0%, var(--primary-color) 100%);
     backdrop-filter: blur(5px);
@@ -369,7 +355,7 @@ nav a.nav-btn:hover {
 }
 
 /* ==========================================================================
-   SEZIONI CONTENUTO (GRID & CARDS - Colonne)
+   SEZIONI CONTENUTO (GRID & CARDS)
    ========================================================================== */
 .section {
     padding: 90px 5%;
@@ -385,7 +371,6 @@ nav a.nav-btn:hover {
     position: relative;
 }
 
-/* Linea colorata sotto il titolo rimessa in un contenitore inline */
 .section-title::after {
     content: '';
     display: block;
@@ -412,7 +397,6 @@ nav a.nav-btn:hover {
     flex-wrap: wrap;
 }
 
-/* Stile Base delle due Card */
 .card {
     background: var(--bg-white);
     padding: 40px;
@@ -425,13 +409,11 @@ nav a.nav-btn:hover {
     border: 1px solid rgba(0,0,0,0.03);
 }
 
-/* Animazione Card al passaggio del mouse */
 .card:hover {
     transform: translateY(-10px);
     box-shadow: 0 20px 40px rgba(0,0,0,0.12);
 }
 
-/* Design Card Studio Infortunistica (Azzurro) */
 .card-studio {
     border-top: 5px solid var(--primary-color);
 }
@@ -444,7 +426,6 @@ nav a.nav-btn:hover {
 .card-studio .card-link:hover { color: var(--primary-dark); }
 .card-studio .custom-list li::before { color: var(--primary-color); }
 
-/* Design personalizzato Card Centro San Luca (Verde Acqua / Teal) */
 .card-sanluca {
     border-top: 5px solid #008080;
 }
@@ -488,7 +469,6 @@ nav a.nav-btn:hover {
     flex-grow: 1;
 }
 
-/* Liste senza pallini ma con le Spunte (Checkmarks) */
 .custom-list {
     list-style: none;
     padding-left: 0;
@@ -577,7 +557,6 @@ nav a.nav-btn:hover {
     line-height: 1.6;
 }
 
-/* Stile per i box degli orari */
 .orari-box {
     background: rgba(255, 255, 255, 0.05);
     padding: 15px 20px;
@@ -595,7 +574,6 @@ nav a.nav-btn:hover {
     letter-spacing: 0.5px;
 }
 
-/* Contenitore Mappa */
 .map-container {
     border-radius: 12px;
     overflow: hidden;
@@ -605,7 +583,7 @@ nav a.nav-btn:hover {
 }
 
 .map-container:hover {
-    transform: translateY(-3px); /* Effetto sollevamento sulla mappa */
+    transform: translateY(-3px);
 }
 
 .map-container iframe {
@@ -613,7 +591,6 @@ nav a.nav-btn:hover {
     width: 100%;
 }
 
-/* Base del Footer */
 .footer-bottom {
     text-align: center;
     margin-top: 50px;
@@ -632,14 +609,8 @@ nav a.nav-btn:hover {
 .footer-bottom a:hover {
     color: #ffcc00; 
 }
+
 /* ==========================================================================
-   MEDIA QUERIES (RESPONSIVE per cellulari e tablet)
-   ========================================================================== */
-
-
-
-
-        /* ==========================================================================
    PAGINA CHI SIAMO
    ========================================================================== */
 
@@ -647,16 +618,15 @@ nav a.nav-btn:hover {
             display: flex;
             flex-wrap: wrap;
             gap: 40px;
-            align-items: stretch; /* Fa sì che le due colonne abbiano la stessa altezza visiva */
+            align-items: stretch;
             /* max-width: 1200px; */
             margin: 80px auto;
             padding: 0 5%;
         }
 
-        /* Colonna di sinistra (Testo) e Destra (Carosello) occupano il 50% */
         .split-text, .manual-carousel {
             flex: 1 1 calc(50% - 20px);
-            min-width: 320px; /* Evita che diventino troppo stretti prima di andare a capo su tablet */
+            min-width: 320px;
         }
 
         .manual-carousel {
@@ -664,7 +634,7 @@ nav a.nav-btn:hover {
             border-radius: 16px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.06);
-            min-height: 450px; /* Altezza minima per garantire che le foto si vedano bene */
+            min-height: 450px;
         }
 
         .carousel-item {
@@ -685,7 +655,6 @@ nav a.nav-btn:hover {
             z-index: 2;
         }
 
-        /* Frecce di navigazione */
         .carousel-control {
             position: absolute;
             top: 50%;
@@ -717,7 +686,6 @@ nav a.nav-btn:hover {
    PAGINA SERVIZI
    ========================================================================== */
 
-/* Forza lo sfondo chiaro per la pagina servizi */
 .page-servizi {
     background-color: var(--bg-light);
 }
@@ -821,10 +789,9 @@ nav a.nav-btn:hover {
 .card-bullet-list li {
     font-size: 1.05rem;
     line-height: 1.6;
-    margin-bottom: 8px; /* Ottimizzato per liste lunghe */
+    margin-bottom: 8px;
 }
 
-/* Colora il pallino (bullet) */
 .card-bullet-list li::marker {
     color: var(--primary-color);
     font-size: 1.1em;
@@ -844,7 +811,6 @@ nav a.nav-btn:hover {
     flex-direction: column;
 }
 
-/* Stile dell'immagine in cima alla card */
 .card-top-img {
     width: 100%;
     height: 220px; 
@@ -866,21 +832,15 @@ nav a.nav-btn:hover {
     flex-direction: column;
 }
 
-/* Colora i pallini di queste specifiche liste di verde acqua */
 .sanluca-list li::marker {
     color: var(--primary-color);
     font-size: 1.2em;
 }
 
 /* ==========================================================================
-   LAYOUT SPECIALE: 1 CARD + 1 CAROSELLO DOPPIO (Trattamenti)
-   ========================================================================== */
-
-/* ==========================================================================
    LAYOUT CORRETTO GRIGLIA TRATTAMENTI + CAROSELLO
    ========================================================================== */
 
-/* Assicura che la sezione che contiene tutto abbia il flexbox attivo */
 .services-grid {
     display: flex;
     flex-wrap: wrap;
@@ -890,13 +850,11 @@ nav a.nav-btn:hover {
     padding: 0 5%;
 }
 
-/* Forza le card a essere il 30% circa */
 .service-card-image, .card-locked {
     flex: 1 1 300px; 
     max-width: 380px;
 }
 
-/* Forza il carosello a occupare il resto dello spazio o andare a capo */
 .double-width-carousel {
     flex: 1 1 600px;
     position: relative;
@@ -906,7 +864,6 @@ nav a.nav-btn:hover {
     min-height: 500px;
 }
 
-/* ANIMAZIONE E OVERLAY (invariati) */
 .auto-slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; opacity: 0; animation: autoFade 12s infinite; }
 .auto-slide:nth-child(1) { animation-delay: 0s; }
 .auto-slide:nth-child(2) { animation-delay: 4s; }
@@ -919,7 +876,7 @@ nav a.nav-btn:hover {
 .main-footer { clear: both; width: 100%; margin-top: 50px; }
 
 /* ==========================================================================
-   MEDIA QUERIES (ORDINE CORRETTO: DA GRANDE A PICCOLO)
+   MEDIA QUERIES: DA GRANDE A PICCOLO)
    ========================================================================== */
 
 /* 1. Tablet e schermi medi (900px) */
@@ -939,33 +896,37 @@ nav a.nav-btn:hover {
         top: 100%;
         left: 0;
         width: 100%;
-        background-color: var(--primary-color);
+        background-color: rgba(2, 121, 181, 0.95);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.2); 
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        border-top: 1px solid rgba(255,255,255,0.1);
         max-height: 0;
         overflow: hidden;
         transition: max-height 0.4s ease-in-out;
     }
+
     .logo img {
         max-height: 35px !important;
     }
 
-    /* Assicuriamoci che l'header non diventi troppo alto */
     header {
         padding: 10px 5% !important;
     }
 
-    /* Allineiamo meglio il bottone hamburger e il logo */
     .logo a {
-        font-size: 1.2rem !important; /* Riduciamo anche il font del testo del logo */
+        font-size: 1.2rem !important;
     }
     .btn {
-        padding: 12px 20px !important; /* Riduciamo il padding per farlo stare */
-        font-size: 0.9rem !important;  /* Riduciamo leggermente il font */
-        width: 100%;                   /* Facciamo sì che occupi tutta la larghezza se serve */
+        padding: 12px 20px !important;
+        font-size: 0.9rem !important;
+        width: 100%;
     }
 
-    /* Sistema il contenitore dei bottoni nella Hero */
     .hero-buttons {
-        flex-direction: column;        /* Mettili uno sotto l'altro invece che di fianco */
+        flex-direction: column;
         gap: 10px;
     }
 
@@ -982,13 +943,24 @@ nav a.nav-btn:hover {
 
     nav a {
         display: block !important;
-        padding: 15px 0 !important;
+        padding: 16px 20px !important;
         width: 100%;
         text-align: center;
         border-bottom: 1px solid rgba(255,255,255,0.1);
+        transition: background-color 0.3s ease;
+    }
+
+    nav a:active, nav a:hover {
+        background-color: rgba(255,255,255,0.15); 
+    }
+
+    nav a.nav-btn {
+        margin: 20px auto !important; 
+        width: 80% !important; 
+        border-radius: 30px !important;
+        border: none !important; 
     }
     
-    /* Rimuove la linea gialla su mobile */
     nav a:not(.nav-btn)::after { display: none !important; }
 
     /* Layout Griglia su mobile */
@@ -998,19 +970,18 @@ nav a.nav-btn:hover {
     }
 
     .hero-text-box {
-        padding: 30px 20px !important; /* Meno padding laterale per avere più spazio */
-        height: auto !important;       /* Fondamentale: si adatta al contenuto */
+        padding: 30px 20px !important; 
+        height: auto !important;       
         min-height: auto !important;
     }
 
-    /* Riduciamo il font dell'H1 che su mobile occupa troppo spazio */
     .hero-text-box h1 {
         font-size: 2rem !important; 
         margin-bottom: 15px !important;
     }
 
     .hero-slider {
-        height: auto !important; /* Si adatta al contenuto */
+        height: auto !important;
         min-height: 500px !important;
         padding: 50px 0;
     }
@@ -1105,7 +1076,6 @@ nav a.nav-btn:hover {
     outline-offset: 2px;
 }
 
-/* ---- Banner: card scura e compatta in basso a sinistra ---- */
 .cookie-banner {
     display: none;
     position: fixed;
